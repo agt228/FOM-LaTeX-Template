@@ -1,26 +1,161 @@
 \newpage
 \section{Methodik} \label{sec: Methodik}
 
-\begin{figure}[H]
-    \caption{Verzeichnisstruktur der \LaTeX{}-Datein}\label{fig:verzeichnisStruktur}
-    \includegraphics[width=0.9\textwidth]{verzeichnisStruktur}
-    \\
-    Quelle: Eigene Darstellung
-\end{figure}
-
 \subsection{Framing} \label{sec: t_Framing}
+
+Der Business-Analytics Prozess wird eingeleitet durch die Identifikation der zu bearbeitenden Problemstellung.
+Dabei werden die folgenden zwei Arten von Problemen unterscheiden:
+
+\begin{enumerate}
+    \item Betriebswirschaftliches Problem
+    \item Analytics-Problem
+\end{enumerate}
+
+Das erst genannte geht dem zweit genannten Problem zeitlich vorweg.
+In der Praxis ist es häufig so, dass die Unternehmensumwelt wie beispielsweise Kunden, Lieferanten, etc. auf
+betriebswirtschaftlicher Ebene auf Probleme hinweisen.
+Alternativ ergeben sich aus dem Unternehmensinneren Impulse, die durch Erfahrungen, zufälligen Beobachtungen, Intuitionen,
+usw. der Manager oder auch Mitarbeiter für Problemstellungen, die es zu lösen gilt.~\footcite[\vglf][\pagef 24]{seiter.2019}
+Diese Rohfassungen der Problemstellungen gilt es anschließend zu Operationalisieren, um zu überprüfen, ob die Ressourcen,
+die zur Lösung des Problems eingesetzt werden sollen, eine gewisse Mindestrelevanz aufweisen.~\footcite[\vglf][\pagef 24]{seiter.2019}
+Hierzu werden ein oder mehr quantitaive Messgrößen festgelegt, die den Mehrwert der Problemlösung herausstellen sollen.
+Diese Messgrößen müssen die Kriterien Aktualität, Wirtschaftlichkeit, und Validität zwangsweise erfüllen.~\footcite[\vglf][\pagef 24]{seiter.2019}
+Aus der Operationalisierung des Problems kann anschließend ein Relevanznachweis erbracht werden.
+Dieser stellt den intendierten Effekt der Problemlösung dar.
+Gleichzeitig wird ein Relevanzniveau vom Top-Management festgelegt, ab wann eine Problemstellung einen Wichtigkeitsgrad
+erreicht hat, um bearbeitet werden zu können.~\footcite[\vglf][\pagef 24]{seiter.2019}
+\\
+Das Analytics-Problem leitet sich aus dem identifizierten betriebswirtschaftlichen Problem ab.
+Hier wird eine erste Grundidee entwickelt, wie das betriebswirtschaftliche Problem gelöst werden kann, bzw.
+welche Analytics-Methoden/Algorithmen eingesetzt werden sollen.
+Die meisten betriebswirtschaftlichen Problemstellungen lassen sich mit einer oder mehr der drei folgenden
+Analytics-Methoden lösen:
+
+\begin{itemize}
+    \item Descriptive-Analytics - Identifikation unbekannter Muster
+    \item Predictive-Analytics - Konstruktion von Prognosemodellen
+    \item Prescriptive-Analytics - Konstruktion von Optimierungsmodellen
+\end{itemize}
 
 \subsection{Allocation} \label{sec: t_Allocation}
 
-\begin{enumerate}
-\item Themenfindung
-\end{enumerate}
-
+Nachdem das Problem sowohl auf betriebswirtschaftlicher als auch auf technischer Ebene identifiziert wurde und der
+Entschluss gefasst wurde, dass dieses gelöst werden soll, geht es im Teilprozess Allocation darum die notwendigen
+Ressourcen bereit zu stellen, die zur Lösung des Problems benötigt werden.~\footcite[\vglf][\pagef 27]{seiter.2019}
+Diese Ressourcen können in
 \begin{itemize}
-\item Datenbanken aus Tools and Methods
+    \item Daten
+    \item IT und
+    \item Personal
 \end{itemize}
+untergliedert werden.~\footcite[\vglf][\pagef 27]{seiter.2019}
+
+Die Ressource \glqq{Daten}\grqq kann in unterschiedlichen Formaten vorliegen.~\footcite[\vglf][\pagef 27]{seiter.2019}
+Der günstigste Fall sind strukturierte Tabellen bzw\. Datenmatritzen, bei der pro Zeile eine Entität beschrieben wird
+sowie die Spalten die Attribute der Entität darstellen.~\footcite[\vglf][\pagef 27]{seiter.2019}
+Des Weiteren liegen die Daten teilweise in einer Semistruktur wie beispielsweise JSON oder HTML vor, teilweise aber auch
+ohne jegliche Struktur wie einfache Texte, Bilder, Videos, etc.~\footcite[\vglf][\pagef 37-38]{cleve.2016}
+Diese werden vor der eigentlichen Verarbeitung in eine strukturierte Tabelle überführt.~\footcite[\vglf][\pagef 27]{seiter.2019}
+Generell gilt, dass die Daten in einer bestimmten Menge sowie Qualität vorliegen müssen.~\footcite[\vglf][\pagef 27]{seiter.2019}
+Wie hoch die die Anforderungen an Menge und Qualität sind, ist von der Komplexität der Problems sowie des zu entwickelnden
+Algorithmus abhängig.~\footcite[\vglf][\pagef 27]{seiter.2019}
+Es kann also sein, dass bei der Entwicklung der Lösungsmodelle keine hinreichenden Ergebnisse erzielt werden können,
+sodass es eine Rückkopplung zum Teilprozess Allocation gibt, um weitere Daten zu beschaffen und damit zielführendere
+Ergebnisse zu erzielen.~\footcite[\vglf][\pagef 27]{seiter.2019}\\
+
+Bei der Ressource \glqq{IT}\grqq wird unterschieden zwischen Hardware und Softeware.~\footcite[\vglf][\pagef 28]{seiter.2019}
+Die Hardware wird benötigt, um Daten zu speichern und zu verarbeiten, während die Software die Anwendungen beinhaltet,
+mit denen die Daten gespeichert, transformiert und visualisiert werden.~\footcite[\vglf][\pagef 28]{seiter.2019}
+Die benötigte Leistungsfähigkeit der IT wird von der zu analysierenden Datenmenge determiniert und damit gleichzeitig auch
+vom betriebswirtschaftlichen Problem.~\footcite[\vglf][\pagef 29]{seiter.2019}
+
+Da sich Analytics-Probleme zum jetzigen Zeitpunkt nicht vollautomatisiert lösen lassen, wird die Ressource \glqq{Personal}\grqq
+benötigt, um den Business Analytics Prozess durchzuführen.~\footcite[\vglf][\pagef 29]{seiter.2019}
+Bei dieser Ressource wird im wesentlichen zwischen den folgenden drei Rollen unterschrieden:~\footcite[\vglf][\pagef 29-30]{seiter.2019}
+\begin{itemize}
+    \item Fachexperten
+    \item Analytics Experten
+    \item IT Experten
+\end{itemize}
+Die Fachexperten bringen das notwendige Domänenwissen der ursprünglichen betriebswirtschaftlichen Problemstellung mit
+und können mit ihrem Fachwissen besipielsweise bei der Plausibilisierung der Ergebnisse mitwirken.~\footcite[\vglf]
+[\pagef 29]{seiter.2019}
+Die Analytics Experten sind auf die technische Lösung des Problems spezialisert und entwickeln die benötigten
+Algorithmen.~\footcite[\vglf][\pagef 29]{seiter.2019}
+Die IT-Experten stellen die benötigte IT-Infrastruktur bereit und sind für die Wartung dieser zuständig.~\footcite[\vglf]
+[\pagef 30]{seiter.2019}
+
+Diese drei Rollen können sowohl aus den betriebsinternen Ressourcen stammen als auch durch externe Mitarbeiter ergänzt
+werden, da vor allem in kleineren Unternehmen nicht alle Rollen in der benötigten Form angestellt sind.~\footcite[\vglf]
+[\pagef 30]{seiter.2019}
 
 \subsection{Analytics} \label{sec: t_Analytics}
 
+In diesem Teilprozess werden Evidenzen aus den Daten gewonnen, um damit das definierte Analytics Problem zu lösen.
+~\footcite[\vglf][\pagef 30]{seiter.2019}
+Dieser Teilprozess kann in die Teilschritte
+\begin{itemize}
+    \item Datenaufbereitung
+    \item Datenanalyse
+    \item Evaluation der Ergebnisse
+\end{itemize}
+aufgeteilt werden.~\footcite[\vglf][\pagef 30]{seiter.2019}
+Im erstgenannten Teilprozess werden die erforderlichen Daten gesammelt, konsolidiert und bereinigt.~\footcite[\vglf]
+[\pagef 30]{seiter.2019}
+Des Weiteren werden neue Attribute durch Berechnung anhand bestehender Attribute geschaffen, bestehende Attribute eliminiert
+oder zusammengeführt.~\footcite[\vglf][\pagef 30]{seiter.2019}
+Wie gründlich die Datenaufbereitung geleistet werden muss, wird bedingt durch den im nächsten Teilschritt angewendeten
+Algorithmus, denn diese haben spezifische Anforderungen an die Datenaufbereitung.~\footcite[\vglf][\pagef 30]{seiter.2019}
+Im Teilschritt der Datenanalyse werden die Evidenzen durch Anwendung von Algorithmen gewonnen.~\footcite[\vglf]
+[\pagef 31]{seiter.2019}
+Hier werden bedingt durch die Problemstellung unterschiedliche Algorithmen angewendet.~\footcite[\vglf]
+[\pagef 31]{seiter.2019}
+Für Descriptive Analytics stehen bespielsweise einfache deskriptive statische Maße, Clusteranalysen, Assoziationsanalysen, etc.
+zur Verfügung.~\footcite[\vglf][\pagef 31]{seiter.2019}
+Bei Predictive Analytics Problemen kommen beispielsweise Regressions-, Klassifikations, oder Zeitreihenanalysen zum
+Einsatz.~\footcite[\vglf][\pagef 31]{seiter.2019}
+Die Prescriptive Analyse macht sich Optimierungs- oder Simulationsalgorithmen zu Nutze.~\footcite[\vglf][\pagef 31]{seiter.2019}
+
+Im letzten Teilschritt werden dann die Ergebnisse aus dem vorherigen Teilschritt evaluiert.~\footcite[\vglf][\pagef 31]
+{seiter.2019}
+Je nach eingesetzem Algorithmus kommen auch diverse Evaluationsmaße zum Einsatz.~\footcite[\vglf][\pagef 31]{seiter.2019}
+Generell werden die Modelle auf Basis eines Evaluationsdatensatzes oder Validierungsdatensatzes bewertet.~\footcite[\vglf]
+[\pagef 31]{seiter.2019}
+Dieser wird in der Regel vor der Entwicklung der Modelle von den Trainingsdaten, die zur Entwicklung der Modelle verwendet werden,
+herausgelöst.~\footcite[\vglf][\pagef 31]{seiter.2019}
+Anhand des Validierungsdatensatzes werden schließlich die Gütemaße berechnet mit denen die Qualität des Modells bewertet
+wird.~\footcite[\vglf][\pagef 31]{seiter.2019}
+
 \subsection{Preparation} \label{sec: t_Preparation}
+
+Der finale Teilprozess ist die Preperation. Hier ist das primäre Ziel die gewonnenen Roh-Evidenzen addressatengerecht
+aufzubereiten, sodass die Anwender diese in optimaler Weise nutzen können.~\footcite[\vglf][\pagef 31]{seiter.2019}
+Die folgenden drei Themenbereiche werden in diesem Teilprozess im Wesentlichen abgehandelt:
+\begin{itemize}
+    \item Klärung der Mechanismen
+    \item Feststellung der Gültigkeitsgrenzen
+    \item Visualisierung
+\end{itemize}
+Die Klärung der Mechanismen beinhaltet die Plausibilisierung der Eingangsdaten im Zusammenhang mit dem Output, um beispielsweise
+Scheinzusammenhänge auszuschließen.~\footcite[\vglf][\pagef 31-32]{seiter.2019}
+Denn erst wenn die Mechanismen geklärt und für plausibel befunden wurden, kann das Risiko bei Verwendung der Evidenz
+minimiert bzw. eliminiert werden.~\footcite[\vglf][\pagef 31-32]{seiter.2019}
+Die Klärung der Mechanismen kann durch Detailanalysen, Experimante oder Befragungen der jeweiligen Domänenexperten
+abgehandelt werden.~\footcite[\vglf][\pagef 32]{seiter.2019}
+Die Feststellung der Gültigkeitsgrenzen ist eine weitere Aufgabe innerhalb dieses Teilprozesses, da eine absolute
+Generalisierbarkeit der Evidenzen in der Regel nicht möglich bzw. zulässig ist.~\footcite[\vglf][\pagef 32]{seiter.2019}
+Aufgrund angenommener Prämissen, die Menge und Qualität der Daten sowie die verwendeten Algorithmen wird die
+Generalisierbarkeit begrenzt, weshalb es unabdingbar ist diese Gültigkeitsgrenzen herauszuarbeiten und zu kommunizieren.
+~\footcite[\vglf][\pagef 32]{seiter.2019}
+Denn nur so können können Fehlanwendungen der Evidenzen vermieden werden.~\footcite[\vglf][\pagef 32]{seiter.2019}
+Im Themenbereich der Visualisierung geht es darum die gewonnen Evidenzen addressatengerecht aufzubereiten, da die
+Nutzer häufig von den Analysten abweichen.~\footcite[\vglf][\pagef 32]{seiter.2019}
+In diesem Schritt ist es essentiell die Evidenzen verständlich für die Nutzer aufzubereiten.
+~\footcite[\vglf][\pagef 32]{seiter.2019}
+Dies kann über diverse Visualisierungsformen vorgenommen werden, in die die gewonnen Roh-Evidenzen hineinfließen.
+~\footcite[\vglf][\pagef 32]{seiter.2019}
+Die Visualisierung ist keine triviale Aufgabe, denn neben den geeigeneten Visualisierungsformen sind auch weitere Komponenten
+wie beispielsweise die Farbwahl zu beachten.~\footcite[\vglf][\pagef 32]{seiter.2019}
+Insgesamt müssen mit den Visualisierungen vor allem die Rezeptionspräferenzen der Betrachter getroffen werden.~\footcite
+[\vglf][\pagef 32]{seiter.2019}
 
