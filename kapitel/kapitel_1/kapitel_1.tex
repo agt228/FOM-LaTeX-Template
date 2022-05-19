@@ -1,57 +1,80 @@
 \newpage
-\section{Informationen vom Thesis-Day} \label{infos}
-Siehe auch Wissenschaftliches Arbeiten~\footcite[\vglf][S. 1]{Balzert.2008}. %ohne textcommands
-Damit sollten alle wichtigen Informationen abgedeckt sein ;-)~\footcite[\vglf][\pagef 1]{Balzert.2008} %mit textcommands
-Hier gibt es noch ein Beispiel für ein direktes Zitat\footcite[][\pagef 1]{Balzert.2008} %mit textcommands
+\section{Theoretische Grundlagen}
+\textcolor{red}{Quellen überall ergänzen} \\
+Im folgenden Teil der Ausarbeitung werden die theoretischen Grundlagen, die zum Verständnis benötigt werden, erläutert.
+Zunächst wird der Oberbegriff Deep Learning kurz erklärt und die dazugehörige Methode der Bildklassifizierung beschrieben. Darauf folgt das Natural Language Processing mit der Named Entity Recognition.
 
-\subsection{Pre-Anmeldephase}
-\subsubsection{Vorüberlegungen}
-Trichtermethode: Man beginnt mit der eigentlichen  Konklusion und überlegt dann, welche allgemeinen Teile dafür benötigt werden.
+\subsection{Deep Learning}
 
-Welchen Mehrwert soll die Arbeit bieten \footnote{Diese Fu\ss note hat inhaltlich keinen Sinn. Es soll nur ein langer Text generiert werden, dass dieser Vermerk über zwei Zeilen reicht und bündig dargestellt wird.}? Auch darüber nachdenken, wie die Arbeit einen selbst weiter bringen kann. Studienverlauf prüfen. Welche Vorlesungen hat mich besonders interessiert? Wo liegen meine Stärken etc.
+Die Image Classification ist ein Anwendungsfall für die Technik des Deep Learning.
+Als Teilgebiet des Maschine Learning bedient sich das Deep Learning mehrschichtiger neuronaler Netze, welche auf Basis großer Datenmengen bereits Erlerntes mit neuen Inhalten verknüpft und somit wiederum erneut lernt. Deep Learning macht es möglich, dass die Maschine selbstständig die eignen Fähigkeiten verbessert.
+Anwendungsbereiche für Deep Learning können beispielsweise die Gesichts-, Objekt- oder Spracherkennung sein. Die Anwendung der Objekterkennung wird nachfolgend beschrieben.
+
+\subsubsection{Image Classification}
+Bei der Image Classification handelt es sich um eine Technik, die ein Objekt auf dem Bild einer bestimmten Klasse oder einer wahrscheinlichen Klasse zuordnet. Als Ziel kann die genaue Identifizierung der Bildmerkmale verstanden werden.
+Es gibt verschiedene Methoden, die zur Image Classification eingesetzt werden können wie die Supervised Classification, die Unsupervised Classification oder auch die Convolutional Neural Networks (CNN). Letzteres wird am häufigsten für den Anwendungsfall herangezogen.
+
+\subsubsection{Convolutional Neural Network}
+Das CNN ist eine besondere Form eines künstlichen neuronalen Netzes.
+Es zeichnet sich durch mehrere Schichten wie den Convolutional- Layer, der Pooling Layer und der Fully-Connected Layer aus. Die Architektur ist in der Abbildung xy dargestellt.
+\\
+\textcolor{red}{Grafik einfügen} \\
+
+In den Schichten der Convolution werden die Eingabebilder analysiert und Merkmale (z.Bsp.: Linien oder Kanten) der Bilder erkannt und extrahiert.
+Die Verarbeitung dieser Merkmale erfolgt in Matrizen, die Feature Maps genannt werden. \\
+Die Feature Maps als Ausgabe der Convolutional Layer werden darauf in den Pooling Layer eingegeben.
+Die Größe der Bilder wird in dieser Schicht reduziert und durch Methoden wie dem Max-Pooling nur die wesentlichen Merkmale weitergegeben.
+Alle anderen Informationen sind für die Verarbeitung überflüssig und werden verworfen.  Ergebnis dieser Schicht ist die gleiche Anzahl an Feature Maps, allerdings in komprimierter Form. \\
+Der Fully-Connected Layer bildet den Abschluss der CNN-Architektur. Jeder Knoten in der Ausgabeschicht ist hier direkt mit einem Knoten der vorgelagerten Schicht verbunden.
+Mithilfe einer Linearkombination und einer Aktivierungsfunktion wird schlussendlich das Bild klassifiziert. Schlussendlich wird dem Bild die Zugehörigkeit zu einer Klasse anhand einer Wahrscheinlichkeit ausgegeben.
+
+\subsection{Natural Language Processing}
+Die Named Entity Recognition ist eine Technik, welches dem Oberbegriff Natural Language Processing (NLP) zugeordnet wird. NLP beschäftigt sich mit der Verarbeitung und dem Verständnis der menschlichen Sprache durch einen Computer.
+Ziel dieser Techniken ist es eine direkte Kommunikation zwischen dem Menschen und dem Computer mithilfe der Sprache herzustellen. Die Fachgebiete der Computerlinguistik, Informatik, Kognitionswissenschaft und künstlicher Intelligenz werden hier vereint.
+Anwendungsfälle können beispielsweise die Extraktion der Bedeutung von Sätzen oder Satzteilen oder auch die Erkennung von Satzzusammenhängen sein.   Neben Techniken wie der Sentiment-Analyse und der Spracherkennung gehört auch die Named Entity Recognition zu den Funktionen des NLP.
+
+\subsubsection{Named Entity Recognition}
+Die Named Entity Recognition (NER) hat zur Aufgabe automatisiert Entitäten in einem Textdokument zu finden und zu klassifizieren. Letzteres geschieht anhand zuvor definierter Kategorien.
+Eine Entität muss dabei nicht nur ein einzelnes Wort sein, sondern kann auch eine Reihe von Wörtern darstellen, solange sie sich auf dieselbe Sache beziehen.
+
+\subsubsection{Vorgehen bei der NER}
+In der NER-Technik werden zwei Schritte durchgeführt, um zu Ergebnissen zu gelangen:
 
 \begin{enumerate}
-\item Themenfindung
-\item Literaturrecherche
-\item Gliederung/Motivationspapier erstellen
-\item Betreuerauswahl (siehe Liste im \ac{OC})
-\item Anmeldung (ab 141 Credits möglich)
+    \item Erkennen einer Entität
+    \item Kategorisierung der Entität
 \end{enumerate}
 
-\subsubsection{Anregungen finden}
-\begin{itemize}
-\item \href{http://www.diplom.de}{www.diplom.de}
-\item \href{http://www.hausarbeiten.de}{www.hausarbeiten.de}
-\item Datenbanken aus Tools and Methods
-\item etc.
-\end{itemize}
 
-\newpage
-\subsection{Anfertigungsphase}
-Die Anmeldung ist mittlerweile jeden Mittwoch möglich.
-\begin{figure}[H]
-\caption{FOM-Vorgaben zur Thesis im Online-Campus}
-\includegraphics[width=0.9\textwidth]{campusDownload}
+Im ersten Schritt wird geprüft, ob eine Wortfolge eine Entität bildet. Die Anfangs- und Endgrenzen der Entitäten werden hierbei festgelegt. Der zweite Schritt hat zum Ziel die zuvor definierte Entität in eine der zuvor definierten Klassen einzuordnen.
+Häufig verwendete Klassen sind beispielsweise Orte, Namen oder Organisationen, welche unter die generischen Kategorien fallen. Des Weiteren gibt es Domänenspezifische Kategorien (Proteine, Enzyme und Gene).
 \\
-\cite[Quelle: Vgl.][]{FOM}
-\end{figure}
+Zur Durchführung der beiden Schritte gibt es verschiedene Ansätze, die angewendet werden können. Ausgehend von den annotierten Datensätzen, die beispielsweise aufgrund von manuell erstellten Regeln oder auf Basis von Kontextähnlichkeiten generiert werden, werden Modelle mithilfe von Machine Learning entwickelt.
+Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur NER. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden.
+\\
+Ein Beispiel für ein Textdokument, in dem die NER Technik angewendet wurde, ist in Abbildung xy dargestellt.\\
+\textcolor{red}{Grafik einfügen} \\
 
-Laut Herrn Keller sollte der Umfang der Thesis (für eine gute Note) eher im Bereich der 60 Seiten liegen. Wie immer ist das vermutlich mit dem Betreuer abzustimmen. Die Liste der Dozenten, die Abschlussarbeiten betreuen, findet sich auch im \ac{OC}.
+Die NER-Technik kann in unterschiedlichen Bereichen angewendet werden. Zum Beispiel können durch die Anwendung die Antwortzeiten im Kundendienst verringert werden, indem die Anfragen zuvor kategorisiert oder direkt dem zuständigen Mitarbeiter zugeordnet werden.
+\\
+Um die Qualität der NER-Technik zu bewerten, werden die Kennzahlen Precision, Recall und der F-Score hinzugezogen.
+Zur Ermittlung dieser muss zunächst die Anzahl der Entitäten mit verschiedenen Ausprägungen ermittelt werden (FP, FN, TP).
 
-Zeit zur Erstellung der Thesis 2-4 Monate.
-
-Es müssen zwei gedruckte Arbeiten abgegeben werden. Flüchtige Quellen als PDF ausgeben lassen und auf CD abgeben. Thesis zusätzlich digital einreichen. Beim Binden der Thesis auf Qualität achten. Haptik und erster Eindruck sind in der Bewertung \enquote{auch} wichtig. Arbeiten können in jedem FOM Studienzentrum abgegeben werden.
-
-\subsection{Post-Abgabephase}
-Nach Abgabe ca. 2 Wochen bis zum Kolloquium.
-
-Kolloquium:
 \begin{itemize}
-\item Dauer: 30 Minuten
-\item Präsentation (manche Prüfer wollen eine, andere nicht)
-\item Betreuer vorher fragen was er möchte
-\item Es gibt einen Frageteil, dieser bezieht sich auf die Arbeit, kann aber auch darüber hinaus gehen.
-\item Der Tag des Kolloquiums steht auf der Endbenotung
-\item Thesis und Kolloquium sind zwei getrennte Prüfungsbereiche. Für beide gibt es nur zwei Versuche.
-\item Am Tag des Kolloquiums erhält man die Bestätigung, ob bestanden oder nicht
+    \item FP: Eine Entität wurde erkannt, obwohl sie keine darstellt
+    \item FN: Eine Entität wurde nicht erkannt, obwohl sie eine darstellt
+    \item TP: Eine Entität wurde richtig erkannt
 \end{itemize}
+
+Die Precision zeigt das Verhältnis zwischen richtig erkannten Entitäten und der Gesamtheit der identifizierten Entitäten an. Die Formel lautet wir folgt:
+\begin{align}
+    Precision {=} \frac{\ac{TP}}{(\ac{TP}+{\ac{FP}})}
+\end{align}
+Der Recall stellt den Anteil der richtig erkannten Entitäten an der Gesamtheit aller möglichen Entitäten dar.
+\begin{flalign}
+    Recall{} {=} {}\frac{\ac{TP}}{(\ac{TP}+{\ac{FN}})}
+\end{flalign}
+Der F-Score ist die Kennzahl, der die Preicision und den Recall zu einem harmonischen Mittel vereint:
+\begin{flalign}
+    F-Score{} {=} {}2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
+\end{flalign}
