@@ -104,6 +104,14 @@ möglicher Aufbau:
 4.	Consultingteil
 
 \subsection{Klassifizierung von Webseiten} \label{subsec_klassifierung_websites}
-\subsubsection{Datenerhebung}
-\subsubsection{Datenverarbeitung}
-\subsubsection{Training des Modells}
+Zur Differenzierung von Produkt und nicht-Produkt Webseiten soll ein Klassifizierungsmodell erstellt werden.
+Im Folgenden wird das Vorgehen mit den Schritten der Datenerhebung \ref{subsubsec_class_datenerhebung}, der Datenverarbeitung \ref{subsubsec_class_datenverarbeitung} und des Modelltrainings \ref{subsubsec_class_training} näher beschrieben.
+\subsubsection{Datenerhebung} \label{subsubsec_class_datenerhebung}
+Aus vergangenen Arbeiten von Studierenden steht bereits eine Datengrundlage zur Verfügung mit Textauszügen, dem HTML Quelltext und heruntergeladenen Bildern von Unternehmenswebseiten.
+Für die Klassifizierung werden jedoch Bilder beziehungsweise Screenshots benötigt, die die gerenderte, visuelle Struktur der Webseite erfassen.
+Dies ist in den bestehenden Daten nicht gegeben und macht daher eine erneute Erhebung notwendig.
+
+Für diesen Zweck wurde zunächst ein Webcrawler auf Basis von Scrapy \footcite[\vglf][]{zotero-328} erstellt, der alle in der Vergangenheit gescrapten Webseiten aufruft und einen Screenshot der jeweiligen Seite erstellt.
+Auf diese Weise wurden circa 10.000 Bilder erstellt, die als Eingangsdaten verwendet werden können.
+\subsubsection{Datenverarbeitung} \label{subsubsec_class_datenverarbeitung}
+\subsubsection{Training des Modells} \label{subsubsec_class_training}
