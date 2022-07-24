@@ -1,10 +1,11 @@
 \newpage
+\section{Praktische Umsetzung} \label{sec_praktische_umsetzung}
 
-\section{Praktische Umsetzung} \label{Praktische Umsetzung}
+In der praktischen Umsetzung werden die Grundlagen auf den Anwendungsfall angewendet. Hierfür wird zunächst der \ac{OSMI}-Index erläutert.
+Es folgen die Bildklassifizierung und die Umsetzung der \acf{NER}. Zum Abschluss des praktischen Teils folgt ein Kapitel
+mit Consultinganteil.
 
-In der Pratkischen Umsetzung werden die Grundlagen auf den Anwendungsfall angewendet.
-Im Rahmen des Consulting-Projektes wurde dabei zu Beginn von der Gruppe ein konkretes Zielbild aufgestellt, welches zum
-Projektabschluss umgesetzt werden sollte.
+\subsection{OSMI-Index} \label{subsec_osmi}
 
 \begin{figure}[H]
 	\caption{Zielbild des Consulting-Projekts}\label{fig:zielbild}
@@ -80,3 +81,29 @@ Der Gesamtdatensatz beläuft sich auf rund 500 annotierten Bildern von Homepages
 	Quelle: Eigene Darstellung
 \end{figure}
 
+-Gewichtung der Indikatoren wird im \ac{OSMI} nicht vorgenommen, weil nicht zweifelsfrei zu
+argumentieren welcher mehr oder weniger bewertet wird (bisher keine Forschungsarbeiten
+dazu) \\
+-Indikatoren werden einzeln bewertet \& letztendlich fünf Parameter zw. 0 \& 1 liegen vor.
+Daraus ergibt sich Gesamt-Index (ohne Gewichtung, arithmetischer Durchschnitt) für jede
+Webseite > auch zw. 0 \& 1 und ist dann der \ac{OSMI}-Index \\
+-Je näher der \ac{OSMI} an einer 1, desto erfolgreicher spricht die Webseite die Sensorik an. Wert
+nahe 0 erhält wichtige Elemente entsprechend nicht \& erfüllt die Indikatoren nicht \\
+-BSP eines \ac{OSMI}-Indexes: Bild einfügen aus der Masterarbeit mymuesli.de oder so
+
+
+
+möglicher Aufbau:
+1.	Bildklassifizierung
+	a.Datenset
+	b.Umsetzung
+2.	NER
+	a.	Datenset
+	b.	Umsetzung
+3.	Zusammenführung
+4.	Consultingteil
+
+\subsection{Klassifizierung von Webseiten} \label{subsec_klassifierung_websites}
+\subsubsection{Datenerhebung}
+\subsubsection{Datenverarbeitung}
+\subsubsection{Training des Modells}
