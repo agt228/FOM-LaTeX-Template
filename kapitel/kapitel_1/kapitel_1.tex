@@ -26,11 +26,11 @@ Die Verarbeitung dieser Merkmale erfolgt in Matrizen, die Feature Maps genannt w
 Die Feature Maps als Ausgabe der Convolutional Layer werden darauf in den Pooling Layer eingegeben.
 Die Größe der Bilder wird in dieser Schicht reduziert und durch Methoden wie dem Max-Pooling nur die wesentlichen Merkmale weitergegeben.
 Alle anderen Informationen sind für die Verarbeitung überflüssig und werden verworfen.  Ergebnis dieser Schicht ist die gleiche Anzahl an Feature Maps, allerdings in komprimierter Form. \\
-Der Fully-Connected Layer bildet den Abschluss der CNN-Architektur. Jeder Knoten in der Ausgabeschicht ist hier direkt mit einem Knoten der vorgelagerten Schicht verbunden.
+Der Fully-Connected Layer bildet den Abschluss der \ac{CNN}-Architektur. Jeder Knoten in der Ausgabeschicht ist hier direkt mit einem Knoten der vorgelagerten Schicht verbunden.
 Mithilfe einer Linearkombination und einer Aktivierungsfunktion wird schlussendlich das Bild klassifiziert. Schlussendlich wird dem Bild die Zugehörigkeit zu einer Klasse anhand einer Wahrscheinlichkeit ausgegeben.
 
 \subsection{Natural Language Processing}
-Die \acl{NER} ist eine Technik, welches dem Oberbegriff \acl{NLP} zugeordnet wird. NLP beschäftigt sich mit der Verarbeitung und dem Verständnis der menschlichen Sprache durch einen Computer.
+Die \acl{NER} ist eine Technik, welches dem Oberbegriff \acl{NLP} zugeordnet wird. \ac{NLP} beschäftigt sich mit der Verarbeitung und dem Verständnis der menschlichen Sprache durch einen Computer.
 Ziel dieser Techniken ist es eine direkte Kommunikation zwischen dem Menschen und dem Computer mithilfe der Sprache herzustellen. Die Fachgebiete der Computerlinguistik, Informatik, Kognitionswissenschaft und künstlicher Intelligenz werden hier vereint.
 Anwendungsfälle können beispielsweise die Extraktion der Bedeutung von Sätzen oder Satzteilen oder auch die Erkennung von Satzzusammenhängen sein.   Neben Techniken wie der Sentiment-Analyse und der Spracherkennung gehört auch die \acl{NER} zu den Funktionen des \ac{NLP}.
 
@@ -51,14 +51,14 @@ Im ersten Schritt wird geprüft, ob eine Wortfolge eine Entität bildet. Die Anf
 Häufig verwendete Klassen sind beispielsweise Orte, Namen oder Organisationen, welche unter die generischen Kategorien fallen. Des Weiteren gibt es Domänenspezifische Kategorien (Proteine, Enzyme und Gene).
 \\
 Zur Durchführung der beiden Schritte gibt es verschiedene Ansätze, die angewendet werden können. Ausgehend von den annotierten Datensätzen, die beispielsweise aufgrund von manuell erstellten Regeln oder auf Basis von Kontextähnlichkeiten generiert werden, werden Modelle mithilfe von Machine Learning entwickelt.
-Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur NER. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden.
+Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur \ac{NER}. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden.
 \\
 Ein Beispiel für ein Textdokument, in dem die \ac{NER} Technik angewendet wurde, ist in Abbildung xy dargestellt.\\
 \textcolor{red}{Grafik einfügen} \\
 
 Die \ac{NER}-Technik kann in unterschiedlichen Bereichen angewendet werden. Zum Beispiel können durch die Anwendung die Antwortzeiten im Kundendienst verringert werden, indem die Anfragen zuvor kategorisiert oder direkt dem zuständigen Mitarbeiter zugeordnet werden.
 \\
-Um die Qualität der NER-Technik zu bewerten, werden die Kennzahlen Precision, Recall und der F-Score hinzugezogen.
+Um die Qualität der \ac{NER}-Technik zu bewerten, werden die Kennzahlen Precision, Recall und der F-Score hinzugezogen.
 Zur Ermittlung dieser muss zunächst die Anzahl der Entitäten mit verschiedenen Ausprägungen ermittelt werden (\ac{FP}, \ac{FN}, \ac{TP}).
 
 \begin{itemize}
