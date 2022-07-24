@@ -112,6 +112,17 @@ Für die Klassifizierung werden jedoch Bilder beziehungsweise Screenshots benöt
 Dies ist in den bestehenden Daten nicht gegeben und macht daher eine erneute Erhebung notwendig.
 
 Für diesen Zweck wurde zunächst ein Webcrawler auf Basis von Scrapy \footcite[\vglf][]{zotero-328} erstellt, der alle in der Vergangenheit gescrapten Webseiten aufruft und einen Screenshot der jeweiligen Seite erstellt.
-Auf diese Weise wurden circa 10.000 Bilder erstellt, die als Eingangsdaten verwendet werden können.
+Auf diese Weise wurden circa 10.000 Bilder gesammelt, die als Eingangsdaten für Modelle verwendet werden können.
+
+Da es sich bei der Klassifizierung um eine Supervised Learning Methode handelt, müssen die Daten daraufhin den Kategorien \textit{Product} und \textit{Non Product} zugeordnet werden.
+\begin{figure}[H]
+    \centering
+    \caption[]{Bildklassifizierung in Doccano}
+	\label{fig:Doccano}
+    \includegraphics[width=1\textwidth]{verzeichnisStruktur}
+\end{figure}
+Dafür werden die Daten in die Annotationssoftware Doccano\footcite[\vglf][]{doccano-2018} geladen und dann den Kategorien zugeordnet. Der so gewonnene Export der Daten kann dann dafür verwendet werden die Bilder in gleichnamige Ordner zu verschieben.
+
 \subsubsection{Datenverarbeitung} \label{subsubsec_class_datenverarbeitung}
+
 \subsubsection{Training des Modells} \label{subsubsec_class_training}
