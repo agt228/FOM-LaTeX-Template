@@ -1,48 +1,29 @@
 \newpage
-\section{Praktische Umsetzung} \label{latexDetails}
+\section{Praktische Umsetzung} \label{Praktische Umsetzung}
 
-In der Pratkischen Umsetzung werden die Grundlagen auf den Anwendungsfall angewendet. Hierfür wird zunächst der OSMI-Index erläutert.
-Es folgen die Bildklassifizierung und die Umsetzung der Named Entitiy Recognition. Zum Abschluss des praktischen Teils folgt ein Kapitel
-mit Consultinganteil.
+In der Pratkischen Umsetzung werden die Grundlagen auf den Anwendungsfall angewendet.
+Im Rahmen des Consulting-Projektes wurde dabei zu Beginn von der Gruppe ein konkretes Zielbild aufgestellt, welches zum
+Projektabschluss umgesetzt werden sollte.
+Um den OSMI-Index zu optimieren und zu automatisieren wurde die in Abbildung \textcolor{red}{noch ein Ref Einfügen} Pipeline aufgestellt mithilfe dessen
+eine Website in Bezug auf den OSMI verarbeitet wird.
+Der erste Schritt stellt dabei eine Vorverarbeitung der zu analysierenden Website dar, indem ein Image Classifier die Haupt- und Unterseiten der Website in
+Produkt- und Nicht-Produktseiten unterteilt.
+Dies ist aus Sicht der Autoren dieser Hausarbeit ein essenzieller Schritt, da so sichergestellt wird, dass die Bewertung des OSMI-Index lediglich auf Basis
+der relevanten URLs vorgenommen wird.
+Im darauf folgenden Schritt wird auf die textlichen Inhalte der relevanten Produktseiten ein NLP-Modell angewendet, welches die Entitäten des OSMI-Index erkennt und auszählt.
+Im abschließenden Schritt werden die Ergebnisse der Website-Analyse im Rahmen eines Dashboards visualisiert.
+Nachfolgend wird die Umsetzung der soeben beschriebenen Schritte im Detail beschrieben und erläutert.
 
-\subsection{OSMI-Index}
+\subsection{Datenvorbereitung}
 
-\textcolor{red}{Stichpunkte noch ausformulieren} \\
-
--Bewertungsinstrument, welches zur Bewertung von E-Commerce Webseiten im Hinblick auf
-deren sensorische Gestaltung dient und Verbesserungspotentiale aufzeigt
-Parameter die sich nach den Sinnen richten (Haptik, Olfaktorik, Akustik, Gustatorik,
-Visualität) \\
--JE Sinn gibt es eine Tabelle die die Evaluierung hinsichtlich bestimmter Indikatoren
-vereinfacht ermöglicht. \\
--Indikatoren Bsp je Sinn\\
-\begin{itemize}
-	\item Haptik: 3D-Bilder, Video, Endowment-Effekt, …
-	\item Olfaktorik: Mentale Simulation von Düfte, Schlüsselbegriffe für Düfte
-	\item Auditive: Töne/Musik, Sprecher/Stimme, Schlüsselbegriffe für Akustik, …
-	\item Gustatorische: Mental Simulation des Schmeckens, Verwendung von
-	Farbschemata, Produktoptio \& Oberflächen, …
-	\item Visuelle: Farbgebung, dynamische Bilder, Oberfläche, …
-\end{itemize}
-
--Gewichtung der Indikatoren wird im OSMI nicht vorgenommen, weil nicht zweifelsfrei zu
-argumentieren welcher mehr oder weniger bewertet wird (bisher keine Forschungsarbeiten
-dazu) \\
--Indikatoren werden einzeln bewertet \& letztendlich fünf Parameter zw. 0 \& 1 liegen vor.
-Daraus ergibt sich Gesamt-Index (ohne Gewichtung, arithmetischer Durchschnitt) für jede
-Webseite > auch zw. 0 \& 1 und ist dann der OSMI-Index \\
--Je näher der OSMI an einer 1, desto erfolgreicher spricht die Webseite die Sensorik an. Wert
-nahe 0 erhält wichtige Elemente entsprechend nicht \& erfüllt die Indikatoren nicht \\
--BSP eines OSMI-Indexes: Bild einfügen aus der Masterarbeit mymuesli.de oder so
-
-
-
-möglicher Aufbau:
-1.	Bildklassifizierung
-	a.Datenset
-	b.Umsetzung
-2.	NER
-	a.	Datenset
-	b.	Umsetzung
-3.	Zusammenführung
-4.	Consultingteil
+Sowohl in der Literatur als auch in bereits etablierten, gut entwickelten und veröffentlichten Modellen ist das Gebiet
+des Sensory Marketings sehr rar vertreten.
+Das bedeutet auch, dass im Hinblick auf den jüngst publizierten OSMI-Index ebenfalls bisher wenig technische Entwicklungen
+vorgenommen worden sind.
+Zwar existieren in der Literatur diverse NLP-Modelle wie beispielsweise das generelle Spacy-Modell oder der sogenannte BERT
+und von beiden erwähnten Modellen Spezialisierungen wie beispielsweise SciSpacy, BioBERT, ESG-BERT, etc\., allerdings ist
+bisher kein NLP-Modell auf Marketingkontexte trainiert und publiziert worden, sodass die Notwendigkeit zur Entwicklung eines
+eigenen Modells im Kontext des Consulting-Auftrags bestand.
+Um im Vorfeld der Website-Bewertung jedoch lediglich nur die relevanten URLs mit Produktinhalt zu selektieren, wurde für den zu
+entwickelnden Image Classifier ebenfalls ein von Grund auf neu zu entwickelndes Modell benötigt, da es innerhalb der Literatur
+bislang kein derartig existierendes Modell publiziert wurde auf das zurückgegriffen werden konnte.
