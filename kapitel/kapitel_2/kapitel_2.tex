@@ -104,25 +104,32 @@ möglicher Aufbau:
 4.	Consultingteil
 
 \subsection{Klassifizierung von Webseiten} \label{subsec_klassifierung_websites}
-Zur Differenzierung von Produkt und nicht-Produkt Webseiten soll ein Klassifizierungsmodell erstellt werden.
-Im Folgenden wird das Vorgehen mit den Schritten der Datenerhebung \ref{subsubsec_class_datenerhebung}, der Datenverarbeitung \ref{subsubsec_class_datenverarbeitung} und des Modelltrainings \ref{subsubsec_class_training} näher beschrieben.
+Zur Differenzierung von Produkt- und nicht-Produkt Webseiten soll ein Klassifizierungsmodell erstellt werden.
+Im Folgenden wird das Vorgehen mit den Schritten der Datenerhebung (\ref{subsubsec_class_datenerhebung}), der Datenverarbeitung (\ref{subsubsec_class_datenverarbeitung}) und des Modelltrainings (\ref{subsubsec_class_training}) näher beschrieben.
 \subsubsection{Datenerhebung} \label{subsubsec_class_datenerhebung}
 Aus vergangenen Arbeiten von Studierenden steht bereits eine Datengrundlage zur Verfügung mit Textauszügen, dem HTML Quelltext und heruntergeladenen Bildern von Unternehmenswebseiten.
 Für die Klassifizierung werden jedoch Bilder beziehungsweise Screenshots benötigt, die die gerenderte, visuelle Struktur der Webseite erfassen.
 Dies ist in den bestehenden Daten nicht gegeben und macht daher eine erneute Erhebung notwendig.
 
 Für diesen Zweck wurde zunächst ein Webcrawler auf Basis von Scrapy \footcite[\vglf][]{zotero-328} erstellt, der alle in der Vergangenheit gescrapten Webseiten aufruft und einen Screenshot der jeweiligen Seite erstellt.
-Auf diese Weise wurden circa 10.000 Bilder gesammelt, die als Eingangsdaten für Modelle verwendet werden können.
+Auf diese Weise wurden circa 10.000 Bilder gesammelt, die als Eingangsdaten für das Modell verwendet werden können.
 
-Da es sich bei der Klassifizierung um eine Supervised Learning Methode handelt, müssen die Daten daraufhin den Kategorien \textit{Product} und \textit{Non Product} zugeordnet werden.
 \begin{figure}[H]
     \centering
     \caption[]{Bildklassifizierung in Doccano}
-	\label{fig:Doccano}
-    \includegraphics[width=1\textwidth]{verzeichnisStruktur}
+	\label{fig:doccano_products}
+    \includegraphics[width=1\textwidth]{doccano_product_annotation.png}
 \end{figure}
-Dafür werden die Daten in die Annotationssoftware Doccano\footcite[\vglf][]{doccano-2018} geladen und dann den Kategorien zugeordnet. Der so gewonnene Export der Daten kann dann dafür verwendet werden die Bilder in gleichnamige Ordner zu verschieben.
+Da es sich bei der Klassifizierung um eine Supervised Learning Methode handelt, müssen die Daten daraufhin den Kategorien \textit{Product} und \textit{Non Product} zugeordnet werden.
+Dafür werden die Daten in die Annotationssoftware Doccano\footcite[\vglf][]{doccano-2018} geladen und dann, wie in Abbildung \ref{fig:doccano_products} dargestellt, den Kategorien zugeordnet.
 
 \subsubsection{Datenverarbeitung} \label{subsubsec_class_datenverarbeitung}
+Im Schritt der Datenverarbeitung werden die Eingangsdaten in eine Form gebracht, in der sie für das Training des Modells verwendet werden können.
+Dazu werden die Bilder anhand des Exports der Annotationen aus Doccano in den Labeln gleichnamige Ordner verschoben.
+
+Da die Screenshots als \textit{.png} Bilder vorliegen, verfügen sie über einen Alpha-Channel der für die Verwendung im Modell hinderlich ist.
+Aus diesem Grund wurde dieser in einem weiteren Schritt entfernt.
+Darüber hinaus werden die Bilder im ersten Layer des Modells auf eine Größe von 224x224 Pixeln herunterskaliert, was eine gängige Größe für \aclp{CNN} darstellt.\footcite[\vglf][\pagef 79]{ghosh2019}
+
 
 \subsubsection{Training des Modells} \label{subsubsec_class_training}
