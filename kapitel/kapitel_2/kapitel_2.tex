@@ -1,4 +1,5 @@
 \newpage
+
 \section{Praktische Umsetzung} \label{Praktische Umsetzung}
 
 In der Pratkischen Umsetzung werden die Grundlagen auf den Anwendungsfall angewendet.
@@ -10,7 +11,7 @@ Der erste Schritt stellt dabei eine Vorverarbeitung der zu analysierenden Websit
 Produkt- und Nicht-Produktseiten unterteilt.
 Dies ist aus Sicht der Autoren dieser Hausarbeit ein essenzieller Schritt, da so sichergestellt wird, dass die Bewertung des OSMI-Index lediglich auf Basis
 der relevanten URLs vorgenommen wird.
-Im darauf folgenden Schritt wird auf die textlichen Inhalte der relevanten Produktseiten ein NLP-Modell angewendet, welches die Entitäten des OSMI-Index erkennt und auszählt.
+Im darauf folgenden Schritt wird auf die textlichen Inhalte der relevanten Produktseiten ein \ac{NLP}-Modell angewendet, welches die Entitäten des OSMI-Index erkennt und auszählt.
 Im abschließenden Schritt werden die Ergebnisse der Website-Analyse im Rahmen eines Dashboards visualisiert.
 Nachfolgend wird die Umsetzung der soeben beschriebenen Schritte im Detail beschrieben und erläutert.
 
@@ -18,7 +19,7 @@ Nachfolgend wird die Umsetzung der soeben beschriebenen Schritte im Detail besch
 
 Sowohl in der Literatur als auch in bereits etablierten, gut entwickelten und veröffentlichten Modellen ist das Gebiet
 des Sensory Marketings sehr rar vertreten.
-Das bedeutet auch, dass im Hinblick auf den jüngst publizierten OSMI-Index ebenfalls bisher wenig technische Entwicklungen
+Das bedeutet auch, dass im Hinblick auf den jüngst publizierten \ac{OSMI}-Index ebenfalls bisher wenig technische Entwicklungen
 vorgenommen worden sind.
 Zwar existieren in der Literatur diverse NLP-Modelle wie beispielsweise das generelle Spacy-Modell oder der sogenannte BERT
 und von beiden erwähnten Modellen Spezialisierungen wie beispielsweise SciSpacy, BioBERT, ESG-BERT, etc\., allerdings ist
@@ -27,3 +28,4 @@ eigenen Modells im Kontext des Consulting-Auftrags bestand.
 Um im Vorfeld der Website-Bewertung jedoch lediglich nur die relevanten URLs mit Produktinhalt zu selektieren, wurde für den zu
 entwickelnden Image Classifier ebenfalls ein von Grund auf neu zu entwickelndes Modell benötigt, da es innerhalb der Literatur
 bislang kein derartig existierendes Modell publiziert wurde auf das zurückgegriffen werden konnte.
+

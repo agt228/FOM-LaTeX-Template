@@ -2,7 +2,7 @@
 \section{Theoretische Grundlagen}
 \textcolor{red}{Quellen überall ergänzen} \\
 Im folgenden Teil der Ausarbeitung werden die theoretischen Grundlagen, die zum Verständnis benötigt werden, erläutert.
-Zunächst wird der Oberbegriff Deep Learning kurz erklärt und die dazugehörige Methode der Bildklassifizierung beschrieben. Darauf folgt das Natural Language Processing mit der Named Entity Recognition.
+Zunächst wird der Oberbegriff Deep Learning kurz erklärt und die dazugehörige Methode der Bildklassifizierung beschrieben. Darauf folgt das \ac{NLP} mit der \ac{NER}.
 
 \subsection{OSMI-Index}
 
@@ -24,15 +24,15 @@ vereinfacht ermöglicht. \\
     \item Visuelle: Farbgebung, dynamische Bilder, Oberfläche, …
 \end{itemize}
 
--Gewichtung der Indikatoren wird im OSMI nicht vorgenommen, weil nicht zweifelsfrei zu
+-Gewichtung der Indikatoren wird im \ac{OSMI} nicht vorgenommen, weil nicht zweifelsfrei zu
 argumentieren welcher mehr oder weniger bewertet wird (bisher keine Forschungsarbeiten
 dazu) \\
 -Indikatoren werden einzeln bewertet \& letztendlich fünf Parameter zw. 0 \& 1 liegen vor.
 Daraus ergibt sich Gesamt-Index (ohne Gewichtung, arithmetischer Durchschnitt) für jede
-Webseite > auch zw. 0 \& 1 und ist dann der OSMI-Index \\
--Je näher der OSMI an einer 1, desto erfolgreicher spricht die Webseite die Sensorik an. Wert
+Webseite > auch zw. 0 \& 1 und ist dann der \ac{OSMI}-Index \\
+-Je näher der \ac{OSMI} an einer 1, desto erfolgreicher spricht die Webseite die Sensorik an. Wert
 nahe 0 erhält wichtige Elemente entsprechend nicht \& erfüllt die Indikatoren nicht \\
--BSP eines OSMI-Indexes: Bild einfügen aus der Masterarbeit mymuesli.de oder so
+-BSP eines \ac{OSMI}-Indexes: Bild einfügen aus der Masterarbeit mymuesli.de oder so
 
 
 
@@ -54,10 +54,10 @@ Anwendungsbereiche für Deep Learning können beispielsweise die Gesichts-, Obje
 
 \subsubsection{Image Classification}
 Bei der Image Classification handelt es sich um eine Technik, die ein Objekt auf dem Bild einer bestimmten Klasse oder einer wahrscheinlichen Klasse zuordnet. Als Ziel kann die genaue Identifizierung der Bildmerkmale verstanden werden.
-Es gibt verschiedene Methoden, die zur Image Classification eingesetzt werden können wie die Supervised Classification, die Unsupervised Classification oder auch die Convolutional Neural Networks (CNN). Letzteres wird am häufigsten für den Anwendungsfall herangezogen.
+Es gibt verschiedene Methoden, die zur Image Classification eingesetzt werden können wie die Supervised Classification, die Unsupervised Classification oder auch die \acp{CNN}. Letzteres wird am häufigsten für den Anwendungsfall herangezogen.
 
 \subsubsection{Convolutional Neural Network}
-Das CNN ist eine besondere Form eines künstlichen neuronalen Netzes.
+Das \ac{CNN} ist eine besondere Form eines künstlichen neuronalen Netzes.
 Es zeichnet sich durch mehrere Schichten wie den Convolutional- Layer, der Pooling Layer und der Fully-Connected Layer aus. Die Architektur ist in der Abbildung xy dargestellt.
 \\
 \textcolor{red}{Grafik einfügen} \\
@@ -67,20 +67,20 @@ Die Verarbeitung dieser Merkmale erfolgt in Matrizen, die Feature Maps genannt w
 Die Feature Maps als Ausgabe der Convolutional Layer werden darauf in den Pooling Layer eingegeben.
 Die Größe der Bilder wird in dieser Schicht reduziert und durch Methoden wie dem Max-Pooling nur die wesentlichen Merkmale weitergegeben.
 Alle anderen Informationen sind für die Verarbeitung überflüssig und werden verworfen.  Ergebnis dieser Schicht ist die gleiche Anzahl an Feature Maps, allerdings in komprimierter Form. \\
-Der Fully-Connected Layer bildet den Abschluss der CNN-Architektur. Jeder Knoten in der Ausgabeschicht ist hier direkt mit einem Knoten der vorgelagerten Schicht verbunden.
+Der Fully-Connected Layer bildet den Abschluss der \ac{CNN}-Architektur. Jeder Knoten in der Ausgabeschicht ist hier direkt mit einem Knoten der vorgelagerten Schicht verbunden.
 Mithilfe einer Linearkombination und einer Aktivierungsfunktion wird schlussendlich das Bild klassifiziert. Schlussendlich wird dem Bild die Zugehörigkeit zu einer Klasse anhand einer Wahrscheinlichkeit ausgegeben.
 
 \subsection{Natural Language Processing}
-Die Named Entity Recognition ist eine Technik, welches dem Oberbegriff Natural Language Processing (NLP) zugeordnet wird. NLP beschäftigt sich mit der Verarbeitung und dem Verständnis der menschlichen Sprache durch einen Computer.
+Die \acl{NER} ist eine Technik, welches dem Oberbegriff \acl{NLP} zugeordnet wird. \ac{NLP} beschäftigt sich mit der Verarbeitung und dem Verständnis der menschlichen Sprache durch einen Computer.
 Ziel dieser Techniken ist es eine direkte Kommunikation zwischen dem Menschen und dem Computer mithilfe der Sprache herzustellen. Die Fachgebiete der Computerlinguistik, Informatik, Kognitionswissenschaft und künstlicher Intelligenz werden hier vereint.
-Anwendungsfälle können beispielsweise die Extraktion der Bedeutung von Sätzen oder Satzteilen oder auch die Erkennung von Satzzusammenhängen sein.   Neben Techniken wie der Sentiment-Analyse und der Spracherkennung gehört auch die Named Entity Recognition zu den Funktionen des NLP.
+Anwendungsfälle können beispielsweise die Extraktion der Bedeutung von Sätzen oder Satzteilen oder auch die Erkennung von Satzzusammenhängen sein.   Neben Techniken wie der Sentiment-Analyse und der Spracherkennung gehört auch die \acl{NER} zu den Funktionen des \ac{NLP}.
 
 \subsubsection{Named Entity Recognition}
-Die Named Entity Recognition (NER) hat zur Aufgabe automatisiert Entitäten in einem Textdokument zu finden und zu klassifizieren. Letzteres geschieht anhand zuvor definierter Kategorien.
+Die \acl{NER} hat zur Aufgabe automatisiert Entitäten in einem Textdokument zu finden und zu klassifizieren. Letzteres geschieht anhand zuvor definierter Kategorien.
 Eine Entität muss dabei nicht nur ein einzelnes Wort sein, sondern kann auch eine Reihe von Wörtern darstellen, solange sie sich auf dieselbe Sache beziehen.
 
 \subsubsection{Vorgehen bei der NER}
-In der NER-Technik werden zwei Schritte durchgeführt, um zu Ergebnissen zu gelangen:
+In der \ac{NER}-Technik werden zwei Schritte durchgeführt, um zu Ergebnissen zu gelangen:
 
 \begin{enumerate}
     \item Erkennen einer Entität
@@ -92,20 +92,20 @@ Im ersten Schritt wird geprüft, ob eine Wortfolge eine Entität bildet. Die Anf
 Häufig verwendete Klassen sind beispielsweise Orte, Namen oder Organisationen, welche unter die generischen Kategorien fallen. Des Weiteren gibt es Domänenspezifische Kategorien (Proteine, Enzyme und Gene).
 \\
 Zur Durchführung der beiden Schritte gibt es verschiedene Ansätze, die angewendet werden können. Ausgehend von den annotierten Datensätzen, die beispielsweise aufgrund von manuell erstellten Regeln oder auf Basis von Kontextähnlichkeiten generiert werden, werden Modelle mithilfe von Machine Learning entwickelt.
-Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur NER. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden.
+Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur \ac{NER}. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden.
 \\
-Ein Beispiel für ein Textdokument, in dem die NER Technik angewendet wurde, ist in Abbildung xy dargestellt.\\
+Ein Beispiel für ein Textdokument, in dem die \ac{NER} Technik angewendet wurde, ist in Abbildung xy dargestellt.\\
 \textcolor{red}{Grafik einfügen} \\
 
-Die NER-Technik kann in unterschiedlichen Bereichen angewendet werden. Zum Beispiel können durch die Anwendung die Antwortzeiten im Kundendienst verringert werden, indem die Anfragen zuvor kategorisiert oder direkt dem zuständigen Mitarbeiter zugeordnet werden.
+Die \ac{NER}-Technik kann in unterschiedlichen Bereichen angewendet werden. Zum Beispiel können durch die Anwendung die Antwortzeiten im Kundendienst verringert werden, indem die Anfragen zuvor kategorisiert oder direkt dem zuständigen Mitarbeiter zugeordnet werden.
 \\
-Um die Qualität der NER-Technik zu bewerten, werden die Kennzahlen Precision, Recall und der F-Score hinzugezogen.
-Zur Ermittlung dieser muss zunächst die Anzahl der Entitäten mit verschiedenen Ausprägungen ermittelt werden (FP, FN, TP).
+Um die Qualität der \ac{NER}-Technik zu bewerten, werden die Kennzahlen Precision, Recall und der F-Score hinzugezogen.
+Zur Ermittlung dieser muss zunächst die Anzahl der Entitäten mit verschiedenen Ausprägungen ermittelt werden (\ac{FP}, \ac{FN}, \ac{TP}).
 
 \begin{itemize}
-    \item FP: Eine Entität wurde erkannt, obwohl sie keine darstellt
-    \item FN: Eine Entität wurde nicht erkannt, obwohl sie eine darstellt
-    \item TP: Eine Entität wurde richtig erkannt
+    \item \ac{FP}: Eine Entität wurde erkannt, obwohl sie keine darstellt
+    \item \ac{FN}: Eine Entität wurde nicht erkannt, obwohl sie eine darstellt
+    \item \ac{TP}: Eine Entität wurde richtig erkannt
 \end{itemize}
 
 Die Precision zeigt das Verhältnis zwischen richtig erkannten Entitäten und der Gesamtheit der identifizierten Entitäten an. Die Formel lautet wir folgt:
@@ -116,7 +116,7 @@ Der Recall stellt den Anteil der richtig erkannten Entitäten an der Gesamtheit 
 \begin{flalign}
     Recall{} {=} {}\frac{\ac{TP}}{(\ac{TP}+{\ac{FN}})}
 \end{flalign}
-Der F-Score ist die Kennzahl, der die Preicision und den Recall zu einem harmonischen Mittel vereint:
+Der F-Score ist die Kennzahl, der die Precision und den Recall zu einem harmonischen Mittel vereint:
 \begin{flalign}
     F-Score{} {=} {}2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
 \end{flalign}
