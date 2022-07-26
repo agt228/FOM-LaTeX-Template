@@ -133,3 +133,25 @@ Darüber hinaus werden die Bilder im ersten Layer des Modells auf eine Größe v
 
 
 \subsubsection{Training des Modells} \label{subsubsec_class_training}
+Nachdem die Daten, wie in Kapitel \ref{subsubsec_class_datenverarbeitung} beschrieben, verarbeitet wurden, können Sie im weiteren Verlauf für das Training eines Modells verwendet werden.
+Dazu wurden die Daten wie im Deep Learning üblich, in Train und Validation Sets aufgeteilt um einen späteren Vergleich auf unbekannten Daten zu ermöglichen.
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{abbildungen/acc_train_val.png}
+        \caption {Accuracy}
+        \label{fig:metricsTrainAcc}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{abbildungen/loss_train_val.png}
+        \caption {Loss}
+        \label{fig:metricsTrainLoss}
+    \end{subfigure}
+    \caption {Vergleich der Trainings- und Validierungsmetriken}
+    \label{fig:metricsTrain}
+    \textit{Quelle: Eigene Darstellung}
+    \\
+\end{figure}
+Abbildung \ref{fig:metricsTrain} stellt jeweils die Trainings- und Validierungsmetriken für die \textit{Accuracy} und den \textit{Loss} gegenüber.
+Es ist erkennbar, dass die Graphen in beiden Abbildungen relativ früh auseinander gehen, was darauf hindeutet, dass ...
+Insgesamt muss gesagt werden, dass die erzielten Genauigkeiten und Losses weit von einem idealen Ergebnis entfernt liegen.
