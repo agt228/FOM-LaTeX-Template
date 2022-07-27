@@ -5,7 +5,15 @@
 In der Pratkischen Umsetzung werden die Grundlagen auf den Anwendungsfall angewendet.
 Im Rahmen des Consulting-Projektes wurde dabei zu Beginn von der Gruppe ein konkretes Zielbild aufgestellt, welches zum
 Projektabschluss umgesetzt werden sollte.
-Um den OSMI-Index zu optimieren und zu automatisieren wurde die in Abbildung \textcolor{red}{noch ein Ref Einfügen} Pipeline aufgestellt mithilfe dessen
+
+\begin{figure}[H]
+	\caption{Zielbild des Consulting-Projekts}\label{fig:zielbild}
+	\includegraphics[width=0.9\textwidth]{zielbild.png}
+	\\
+	Quelle: Eigene Darstellung
+\end{figure}
+
+Um den OSMI-Index zu optimieren und zu automatisieren wurde die in Abbildung~\ref{fig:zielbild} Pipeline aufgestellt mithilfe dessen
 eine Website in Bezug auf den OSMI verarbeitet wird.
 Der erste Schritt stellt dabei eine Vorverarbeitung der zu analysierenden Website dar, indem ein Image Classifier die Haupt- und Unterseiten der Website in
 Produkt- und Nicht-Produktseiten unterteilt.
@@ -28,4 +36,47 @@ eigenen Modells im Kontext des Consulting-Auftrags bestand.
 Um im Vorfeld der Website-Bewertung jedoch lediglich nur die relevanten URLs mit Produktinhalt zu selektieren, wurde für den zu
 entwickelnden Image Classifier ebenfalls ein von Grund auf neu zu entwickelndes Modell benötigt, da es innerhalb der Literatur
 bislang kein derartig existierendes Modell publiziert wurde auf das zurückgegriffen werden konnte.
+
+Die Trainingsdaten wurden mithilfe von Doccano generiert.
+Doccano ist ein open source Tool, welches zur Annotation von Text und Bilddaten entwickelt wurde.
+Mit diesem Instrument ist es also möglich Textpassagen und Bilder hochzuladen und Annotationen vorzunehmen, um Daten zur
+Entwicklung von Aufträgen wie Named-Entity-Recognition, Textzusammenfassungen, Sentimentanalysen, Image Classification, etc.
+zu generieren.
+
+Im Rahmen des Consulting-Projekts wurden zwei Doccano-Projekte gestartet.
+Ein Projekt wurde für das Annotieren von Textpassagen zur Entwicklung eines Named-Entity-Recognition Modells erstellt.
+Im zweiten Projekt wurden Screenshots von Produktseiten und Nicht-Produktseiten annotiert.
+
+Die Textpassagen, die annotiert wurden, sind im Rahmen des Consulting-Projekts zur Verfügung gestellt worden und entstammen
+Webscraping-Ergebnissen von Vorgängerprojekten.
+Hier wurden die fünf Sinne
+\begin{itemize}
+	\item Sight
+	\item Smell
+	\item Sound
+	\item Taste
+	\item Touch
+\end{itemize}
+als Label festgelegt und konnten im Rahmen des Annotationsprozesses ausgewählt werden.
+Die in Abbildung~\ref{fig:annotation_ner} dargestellten horizontalen Balken geben den Annotationsstand wieder, auf Basis dessen
+das Modell zur Erkennung von Entitäten entwickelt wurde.
+Hier ist zu erkennen, dass die Entität \glqq{Sight}\grqq am häufigsten annotiert worden ist, während die Trainigs- und Testdaten für
+die Entität \glqq{Smell}\grqq, \glqq{Sound}\grqq sowie \glqq{Taste}\grqq kaum vertreten sind.
+\begin{figure}[H]
+	\caption{Annotationsstand Textlabeling}\label{fig:annotation_ner}
+	\includegraphics[width=0.9\textwith]{annotationen_ner.png}
+	\\
+	Quelle: Eigene Darstellung
+\end{figure}
+Die zu annotierenden Bilddaten von Produkt- und Nicht-Produktseiten wurden im Rahmen des behandelten Projektes selbständig
+generiert.
+Abbildung~\ref{fig:annotation_imgclf} zeigt, dass zur Modellentwicklung für den Image Classifier eine fast Gleichverteilung zwischen Produkt-
+und Nicht-Produktseiten zugrunde gelegt wird.
+Der Gesamtdatensatz beläuft sich auf rund 500 annotierten Bildern von Homepages.
+\begin{figure}[H]
+	\caption{Annotationsstand Textlabeling}\label{fig:annotation_imgclf}
+	\includegraphics[width=0.9\textwidth]{annotationen_imgclf.png}
+	\\
+	Quelle: Eigene Darstellung
+\end{figure}
 
