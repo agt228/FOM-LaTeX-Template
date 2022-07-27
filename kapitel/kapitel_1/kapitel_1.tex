@@ -1,20 +1,17 @@
 \newpage
 \section{Theoretische Grundlagen}
 \textcolor{red}{Quellen überall ergänzen} \\
-Im folgenden Teil der Ausarbeitung werden die theoretischen Grundlagen, die zum Verständnis benötigt werden, erläutert.
-Zunächst wird der Oberbegriff Deep Learning kurz erklärt und die dazugehörige Methode der Bildklassifizierung beschrieben. Darauf folgt das \ac{NLP} mit der \ac{NER}.
+Im folgenden Teil der Ausarbeitung werden die theoretischen Grundlagen zum Verständnis der Ausarbeitung erläutert.
+Zunächst wird der \ac{OSMI} als Hautpaugenmerk erklärt. Es folgen der Oberbegriff Deep Learning und die dazugehörige Methode der Bildklassifizierung.
+Darauf folgt das \ac{NLP} mit der \ac{NER}.
 
-\subsection{OSMI-Index}
+\subsection{Online Sensory Marketing Index}
 
-\textcolor{red}{Stichpunkte noch ausformulieren} \\
+Der Fokus in dieser Ausarbeitung liegt auf dem Online Sensory Marketing Index \ac{OSMI}. Es handelt sich dabei um ein Bewertungsinstrument, welches von Kevin Hamacher im Jahr 2018 entwickelt wurde.
+Ziel des \ac{OSMI} ist es, dass E-Commerce Webseiten im Hinblick auf deren sensorische Gestaltung bewertet werden und dementsprechend Verbesserungspotentiale aufgezeigt werden.
+Unter einer sensorischen Gestaltung werden Parameter gefasst, die sich nach den Sinnen eines Menschen richten. Diese sind die Haptik, die Olfaktorik, die Akustik, die Gustatorik und die Visualität.
+Die Bewertung im \ac{OSMI} wird anhand verschiedener Indikatoren der einzelnen Sinne vorgenommen. Nachfolgend sind beispielhafte Indikatoren der einzelnen Sinne aufgeführt, die im \ac{OSMI} Berücksichtigung finden:
 
--Bewertungsinstrument, welches zur Bewertung von E-Commerce Webseiten im Hinblick auf
-deren sensorische Gestaltung dient und Verbesserungspotentiale aufzeigt
-Parameter die sich nach den Sinnen richten (Haptik, Olfaktorik, Akustik, Gustatorik,
-Visualität) \\
--JE Sinn gibt es eine Tabelle die die Evaluierung hinsichtlich bestimmter Indikatoren
-vereinfacht ermöglicht. \\
--Indikatoren Bsp je Sinn\\
 \begin{itemize}
     \item Haptik: 3D-Bilder, Video, Endowment-Effekt, …
     \item Olfaktorik: Mentale Simulation von Düfte, Schlüsselbegriffe für Düfte
@@ -24,27 +21,16 @@ vereinfacht ermöglicht. \\
     \item Visuelle: Farbgebung, dynamische Bilder, Oberfläche, …
 \end{itemize}
 
--Gewichtung der Indikatoren wird im \ac{OSMI} nicht vorgenommen, weil nicht zweifelsfrei zu
-argumentieren welcher mehr oder weniger bewertet wird (bisher keine Forschungsarbeiten
-dazu) \\
--Indikatoren werden einzeln bewertet \& letztendlich fünf Parameter zw. 0 \& 1 liegen vor.
-Daraus ergibt sich Gesamt-Index (ohne Gewichtung, arithmetischer Durchschnitt) für jede
-Webseite > auch zw. 0 \& 1 und ist dann der \ac{OSMI}-Index \\
--Je näher der \ac{OSMI} an einer 1, desto erfolgreicher spricht die Webseite die Sensorik an. Wert
-nahe 0 erhält wichtige Elemente entsprechend nicht \& erfüllt die Indikatoren nicht \\
--BSP eines \ac{OSMI}-Indexes: Bild einfügen aus der Masterarbeit mymuesli.de oder so
+Die Evaluation der einzelnen Indikatoren wird in Form einer Tabelle dargestellt. Ein Beispiel ist am Ende dieses Kapitels aufgeführt.
+Für eine Webseite wird jeder Indikator der fünf Sinne einzeln bewertet und auf Basis dieser letztendlich für jeden der fünf Parameter ein Wert zwischen 0 und 1 festgelegt.
+Eine Gewichtung zwischen den einzelnen Indikatoren wird dabei nicht vorgenommen. \\
+Im letzten Schritt zur Ermittlung des \ac{OSMI} wird über die Parameter der fünf Sinne der arithmetische Durchschnitt berechnet.
+Dieser Wert liegt ebenfalls zwischen 0 und 1 und bildet den \ac{OSMI} einer Webseite. Dabei gilt dass die Webseite erfolgreicher die Sensorik anspricht, wenn der OSMI-Index näher an einer 1 liegt.
+Liegt der Wert näher an einer 0 werden schlussfolgernd wichtige Elemente zur Ansprache der Sensorik nicht gentutzt. \\
+Die nachfolgende Tabelle zeigt ein Beispiel aus der Masterarbeit von K.Hamacher zum \ac{OSMI} der Webseite www.mymuesli.de.
 
+\textcolor{red}{mymuesli Beispiel ergänzen? Hier noch was zu schreiben?}
 
-
-möglicher Aufbau:
-1.	Bildklassifizierung
-a.Datenset
-b.Umsetzung
-2.	NER
-a.	Datenset
-b.	Umsetzung
-3.	Zusammenführung
-4.	Consultingteil
 
 \subsection{Deep Learning}
 
