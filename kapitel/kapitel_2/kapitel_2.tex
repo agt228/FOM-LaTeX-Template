@@ -1,10 +1,11 @@
 \newpage
+\section{Praktische Umsetzung} \label{sec_praktische_umsetzung}
 
-\section{Praktische Umsetzung} \label{Praktische Umsetzung}
+In der praktischen Umsetzung werden die Grundlagen auf den Anwendungsfall angewendet. Hierfür wird zunächst der \ac{OSMI}-Index erläutert.
+Es folgen die Bildklassifizierung und die Umsetzung der \acf{NER}. Zum Abschluss des praktischen Teils folgt ein Kapitel
+mit Consultinganteil.
 
-In der Pratkischen Umsetzung werden die Grundlagen auf den Anwendungsfall angewendet.
-Im Rahmen des Consulting-Projektes wurde dabei zu Beginn von der Gruppe ein konkretes Zielbild aufgestellt, welches zum
-Projektabschluss umgesetzt werden sollte.
+\subsection{OSMI-Index} \label{subsec_osmi}
 
 \begin{figure}[H]
 	\caption{Zielbild des Consulting-Projekts}\label{fig:zielbild}
@@ -64,7 +65,7 @@ Hier ist zu erkennen, dass die Entität \glqq{Sight}\grqq am häufigsten annotie
 die Entität \glqq{Smell}\grqq, \glqq{Sound}\grqq sowie \glqq{Taste}\grqq kaum vertreten sind.
 \begin{figure}[H]
 	\caption{Annotationsstand Textlabeling}\label{fig:annotation_ner}
-	\includegraphics[width=0.9\textwith]{annotationen_ner.png}
+	\includegraphics[width=0.9\textwidth]{annotationen_ner.png}
 	\\
 	Quelle: Eigene Darstellung
 \end{figure}
@@ -81,7 +82,84 @@ Der Gesamtdatensatz beläuft sich auf rund 500 annotierten Bildern von Homepages
 	Quelle: Eigene Darstellung
 \end{figure}
 
+
 \subsection{Modellentwicklung}
 \subsubsection{NER-Modell}
 
 \subsubsection{Image Classification Modell}
+
+-Gewichtung der Indikatoren wird im \ac{OSMI} nicht vorgenommen, weil nicht zweifelsfrei zu
+argumentieren welcher mehr oder weniger bewertet wird (bisher keine Forschungsarbeiten
+dazu) \\
+-Indikatoren werden einzeln bewertet \& letztendlich fünf Parameter zw. 0 \& 1 liegen vor.
+Daraus ergibt sich Gesamt-Index (ohne Gewichtung, arithmetischer Durchschnitt) für jede
+Webseite > auch zw. 0 \& 1 und ist dann der \ac{OSMI}-Index \\
+-Je näher der \ac{OSMI} an einer 1, desto erfolgreicher spricht die Webseite die Sensorik an. Wert
+nahe 0 erhält wichtige Elemente entsprechend nicht \& erfüllt die Indikatoren nicht \\
+-BSP eines \ac{OSMI}-Indexes: Bild einfügen aus der Masterarbeit mymuesli.de oder so
+
+
+
+möglicher Aufbau:
+1.	Bildklassifizierung
+	a.Datenset
+	b.Umsetzung
+2.	NER
+	a.	Datenset
+	b.	Umsetzung
+3.	Zusammenführung
+4.	Consultingteil
+
+\subsection{Klassifizierung von Webseiten} \label{subsec_klassifierung_websites}
+Zur Differenzierung von Produkt- und nicht-Produkt Webseiten soll ein Klassifizierungsmodell erstellt werden.
+Im Folgenden wird das Vorgehen mit den Schritten der Datenerhebung (\ref{subsubsec_class_datenerhebung}), der Datenverarbeitung (\ref{subsubsec_class_datenverarbeitung}) und des Modelltrainings (\ref{subsubsec_class_training}) näher beschrieben.
+\subsubsection{Datenerhebung} \label{subsubsec_class_datenerhebung}
+Aus vergangenen Arbeiten von Studierenden steht bereits eine Datengrundlage zur Verfügung mit Textauszügen, dem HTML Quelltext und heruntergeladenen Bildern von Unternehmenswebseiten.
+Für die Klassifizierung werden jedoch Bilder beziehungsweise Screenshots benötigt, die die gerenderte, visuelle Struktur der Webseite erfassen.
+Dies ist in den bestehenden Daten nicht gegeben und macht daher eine erneute Erhebung notwendig.
+
+Für diesen Zweck wurde zunächst ein Webcrawler auf Basis von Scrapy \footcite[\vglf][]{zotero-328} erstellt, der alle in der Vergangenheit gescrapten Webseiten aufruft und einen Screenshot der jeweiligen Seite erstellt.
+Auf diese Weise wurden circa 10.000 Bilder gesammelt, die als Eingangsdaten für das Modell verwendet werden können.
+
+\begin{figure}[H]
+    \centering
+    \caption[]{Bildklassifizierung in Doccano}
+	\label{fig:doccano_products}
+    \includegraphics[width=1\textwidth]{doccano_product_annotation.png}
+\end{figure}
+Da es sich bei der Klassifizierung um eine Supervised Learning Methode handelt, müssen die Daten daraufhin den Kategorien \textit{Product} und \textit{Non Product} zugeordnet werden.
+Dafür werden die Daten in die Annotationssoftware Doccano\footcite[\vglf][]{doccano-2018} geladen und dann, wie in Abbildung \ref{fig:doccano_products} dargestellt, den Kategorien zugeordnet.
+
+\subsubsection{Datenverarbeitung} \label{subsubsec_class_datenverarbeitung}
+Im Schritt der Datenverarbeitung werden die Eingangsdaten in eine Form gebracht, in der sie für das Training des Modells verwendet werden können.
+Dazu werden die Bilder anhand des Exports der Annotationen aus Doccano in den Labeln gleichnamige Ordner verschoben.
+
+Da die Screenshots als \textit{.png} Bilder vorliegen, verfügen sie über einen Alpha-Channel der für die Verwendung im Modell hinderlich ist.
+Aus diesem Grund wurde dieser in einem weiteren Schritt entfernt.
+Darüber hinaus werden die Bilder im ersten Layer des Modells auf eine Größe von 224x224 Pixeln herunterskaliert, was eine gängige Größe für \aclp{CNN} darstellt.\footcite[\vglf][\pagef 79]{ghosh2019}
+
+
+\subsubsection{Training des Modells} \label{subsubsec_class_training}
+Nachdem die Daten, wie in Kapitel \ref{subsubsec_class_datenverarbeitung} beschrieben, verarbeitet wurden, können Sie im weiteren Verlauf für das Training eines Modells verwendet werden.
+Dazu wurden die Daten wie im Deep Learning üblich, in Train und Validation Sets aufgeteilt um einen späteren Vergleich auf unbekannten Daten zu ermöglichen.
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{abbildungen/acc_train_val.png}
+        \caption {Accuracy}
+        \label{fig:metricsTrainAcc}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{abbildungen/loss_train_val.png}
+        \caption {Loss}
+        \label{fig:metricsTrainLoss}
+    \end{subfigure}
+    \caption {Vergleich der Trainings- und Validierungsmetriken}
+    \label{fig:metricsTrain}
+    \textit{Quelle: Eigene Darstellung}
+    \\
+\end{figure}
+Abbildung \ref{fig:metricsTrain} stellt jeweils die Trainings- und Validierungsmetriken für die \textit{Accuracy} und den \textit{Loss} gegenüber.
+Es ist erkennbar, dass die Graphen in beiden Abbildungen relativ früh auseinander gehen, was darauf hindeutet, dass ...
+Insgesamt muss gesagt werden, dass die erzielten Genauigkeiten und Losses weit von einem idealen Ergebnis entfernt liegen.
+
