@@ -46,9 +46,14 @@ Letzteres wird am häufigsten für den Anwendungsfall herangezogen.\textcolor{re
 
 \subsubsection{Convolutional Neural Network}
 Das \ac{CNN} ist eine besondere Form eines künstlichen neuronalen Netzes. Es zeichnet sich durch mehrere Schichten wie den Convolutional- Layer, den Pooling Layer und den Fully-Connected Layer aus.
-Die Architektur ist in der Abbildung xy dargestellt.
+Die Architektur ist in der Abbildung ref{fig:CNN} dargestellt.
 \\
-\textcolor{red}{Grafik einfügen} \\
+
+\begin{figure}[H]
+    \caption{Aufbau des Convolutional Neural Networks}\label{fig:CNN}
+    \includegraphics[width=0.9\textwidth]{CNN}
+    \textit{Quelle:~\cite[][\pagef 14]{alzubaidiReviewDeepLearning2021}}
+\end{figure}
 
 In den Schichten der Convolution werden die Eingabebilder analysiert und Merkmale (zum Beispiel Linien oder Kanten) der Bilder erkannt und extrahiert.
 Die Verarbeitung dieser Merkmale erfolgt in Matrizen, die Feature Maps genannt werden. \\
@@ -83,7 +88,14 @@ Zur Durchführung der beiden Schritte gibt es verschiedene Ansätze, die angewen
 Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur \ac{NER}. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden.\textcolor{red}{Zitat}
 \\
 Ein Beispiel für ein Textdokument, in dem die \ac{NER} Technik angewendet wurde, ist in Abbildung \textcolor{red}{ref xy} dargestellt.\\
-\textcolor{red}{Grafik einfügen} \\
+
+
+\begin{figure}[H]
+    \caption{Beispiel der \ac{NER} Technik}
+    \label{fig:NLP}
+    \includegraphics[width=1\textwidth]{NLP.png}
+    \textit{Quelle: Eigene Darstellung}
+\end{figure}
 
 Die \ac{NER}-Technik kann in unterschiedlichen Bereichen angewendet werden. Zum Beispiel können durch die Anwendung die Antwortzeiten im Kundendienst verringert werden, indem die Anfragen zuvor kategorisiert oder direkt dem zuständigen Mitarbeiter zugeordnet werden.\textcolor{red}{Zitat}
 \\
