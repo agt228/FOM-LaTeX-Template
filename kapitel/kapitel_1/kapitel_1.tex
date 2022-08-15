@@ -1,6 +1,5 @@
 \newpage
 \section{Theoretische Grundlagen}
-\textcolor{red}{Quellen überall ergänzen} \\
 Im folgenden Teil der Ausarbeitung werden die theoretischen Grundlagen zum Verständnis der Ausarbeitung erläutert.
 Zunächst wird der \ac{OSMI} als Hautpaugenmerk erklärt. Es folgen der Oberbegriff Deep Learning und die dazugehörige Methode der Bildklassifizierung.
 Darauf folgt das \ac{NLP} mit der \ac{NER}.
@@ -21,7 +20,7 @@ Die Bewertung im \ac{OSMI} wird anhand verschiedener Indikatoren der einzelnen S
     \item Visuelle: Farbgebung, dynamische Bilder, Oberfläche, … \footcite[\vglf][\pagef 41-56]{hamacher2018}
 \end{itemize}
 
-Die Evaluation der einzelnen Indikatoren wird in Form einer Tabelle dargestellt. Ein Beispiel ist am Ende dieses Kapitels aufgeführt \textcolor{red}{ref label der tabelle}.
+Die Evaluation der einzelnen Indikatoren wird in Form einer Tabelle dargestellt. Ein Beispiel ist am Ende dieses Kapitels aufgeführt ~\ref{fig:mymuesli}.
 Für eine Webseite wird jeder Indikator der fünf Sinne einzeln bewertet und auf Basis dessen letztendlich für jeden der fünf Parameter ein Wert zwischen 0 und 1 ermittelt.
 Eine Gewichtung zwischen den einzelnen Indikatoren wird dabei nicht vorgenommen. \\
 Im letzten Schritt zur Ermittlung des \ac{OSMI} wird über die Parameter der fünf Sinne das arithmetische Mittel berechnet.
@@ -84,11 +83,12 @@ In der \ac{NER}-Technik werden zwei Schritte durchgeführt, um zu Ergebnissen zu
 \end{enumerate}
 
 
-Im ersten Schritt wird geprüft, ob eine Wortfolge eine Entität bildet. Die Anfangs- und Endgrenzen der Entitäten werden hierbei festgelegt. Der zweite Schritt hat zum Ziel die zuvor definierte Entität in eine der zuvor definierten Klassen einzuordnen.
-Häufig verwendete Klassen sind beispielsweise Orte, Namen oder Organisationen, welche unter die generischen Kategorien fallen.\textcolor{red}{Zitat} Des Weiteren gibt es domänenspezifische Kategorien wie zum Beispiel Proteine, Enzyme oder Gene.
+Im ersten Schritt wird geprüft, ob eine Wortfolge eine Entität bildet. Die Anfangs- und Endgrenzen der Entitäten werden hierbei festgelegt. Der zweite Schritt hat zum Ziel die zuvor definierte Entität in eine der zuvor definierten Klassen einzuordnen. ~\footcite[\vglf][\pagef 35]{bast2016}
+Häufig verwendete Klassen sind beispielsweise Orte, Namen oder Organisationen, welche unter die generischen Kategorien fallen. Des Weiteren gibt es domänenspezifische Kategorien wie zum Beispiel Proteine, Enzyme oder Gene. ~\footcite[\vglf][\pagef 1]{li.2018}
+
 \\
 Zur Durchführung der beiden Schritte gibt es verschiedene Ansätze, die angewendet werden können. Ausgehend von den annotierten Datensätzen, die beispielsweise aufgrund von manuell erstellten Regeln oder auf Basis von Kontextähnlichkeiten generiert werden, werden Modelle mithilfe von Machine Learning entwickelt.
-Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur \ac{NER}. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden.\textcolor{red}{Zitat}
+Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur \ac{NER}. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden. ~\footcite[\vglf][\pagef 5]{li.2018}
 \\
 Ein Beispiel für ein Textdokument, in dem die \ac{NER} Technik angewendet wurde, ist in Abbildung ~\ref{fig:NLP} dargestellt.\\
 
@@ -100,15 +100,13 @@ Ein Beispiel für ein Textdokument, in dem die \ac{NER} Technik angewendet wurde
     \textit{Quelle: Eigene Darstellung}
 \end{figure}
 
-Die \ac{NER}-Technik kann in unterschiedlichen Bereichen angewendet werden. Zum Beispiel können durch die Anwendung die Antwortzeiten im Kundendienst verringert werden, indem die Anfragen zuvor kategorisiert oder direkt dem zuständigen Mitarbeiter zugeordnet werden.\textcolor{red}{Zitat}
-\\
-Um die Qualität der \ac{NER}-Technik zu bewerten, werden die Kennzahlen Precision, Recall und der F-Score hinzugezogen.
+Um die Qualität der \ac{NER}-Technik zu bewerten, werden die Kennzahlen Precision, Recall und der F-Score hinzugezogen. ~\footcite[\vglf][\pagef 3 f.]{li.2018}
 Zur Ermittlung dieser muss zunächst die Anzahl der Entitäten mit verschiedenen Ausprägungen ermittelt werden (\ac{FP}, \ac{FN}, \ac{TP}).
 
 \begin{itemize}
     \item \ac{FP}: Eine Entität wurde erkannt, obwohl sie keine darstellt
     \item \ac{FN}: Eine Entität wurde nicht erkannt, obwohl sie eine darstellt
-    \item \ac{TP}: Eine Entität wurde richtig erkannt
+    \item \ac{TP}: Eine Entität wurde richtig erkannt ~\footcite[\vglf][\pagef 2 f.]{larner2021}
 \end{itemize}
 
 Die Precision zeigt das Verhältnis zwischen richtig erkannten Entitäten und der Gesamtheit der identifizierten Entitäten an. Die Formel lautet wir folgt:
@@ -121,5 +119,5 @@ Der Recall stellt den Anteil der richtig erkannten Entitäten an der Gesamtheit 
 \end{flalign}
 Der F-Score ist die Kennzahl, der die Precision und den Recall zu einem harmonischen Mittel vereint:
 \begin{flalign}
-    F-Score{} {=} {}2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
+    F-Score{} {=} {}2 \cdot \frac{Precision \cdot Recall}{Precision + Recall} ~\footcite[\vglf][\pagef 105]{wang2021}
 \end{flalign}
