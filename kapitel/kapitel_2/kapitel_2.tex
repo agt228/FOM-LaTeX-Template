@@ -79,7 +79,7 @@ Der Gesamtdatensatz beläuft sich auf rund 500 annotierten Bildern von Homepages
 	\caption{Annotationsstand Textlabeling}\label{fig:annotation_imgclf}
 	\includegraphics[width=0.9\textwidth]{annotationen_imgclf.png}
 	\\
-	Quelle: Eigene Darstellung
+	\textit{Quelle: Eigene Darstellung}
 \end{figure}
 
 
@@ -139,6 +139,8 @@ Auf diese Weise wurden circa 10.000 Bilder gesammelt, die als Eingangsdaten für
     \caption[]{Bildklassifizierung in Doccano}
 	\label{fig:doccano_products}
     \includegraphics[width=1\textwidth]{doccano_product_annotation.png}
+	\\
+	\textit{Quelle: Eigene Darstellung}
 \end{figure}
 Da es sich bei der Klassifizierung um eine Supervised Learning Methode handelt, müssen die Daten daraufhin den Kategorien \textit{Product} und \textit{Non Product} zugeordnet werden.
 Dafür werden die Daten in die Annotationssoftware Doccano\footcite[\vglf][]{doccano-2018} geladen und dann, wie in Abbildung \ref{fig:doccano_products} dargestellt, den Kategorien zugeordnet.
@@ -176,3 +178,22 @@ Abbildung \ref{fig:metricsTrain} stellt jeweils die Trainings- und Validierungsm
 Es ist erkennbar, dass die Graphen in beiden Abbildungen relativ früh auseinander gehen, was darauf hindeutet, dass ...
 Insgesamt muss gesagt werden, dass die erzielten Genauigkeiten und Losses weit von einem idealen Ergebnis entfernt liegen.
 
+\subsection{Dashboard zur Ergebnisdarstellung} \label{subsec_dashboard}
+Nachdem das Modell zur Image Classification die relevanten Produktseiten eine Webseite identifiziert hat und das \ac{NER}-Modell
+alle relevanten Textpassagen auf die fünf Sinnesentitäten geprüft und diese ausgezählt hat, werden die Ergebnisse
+in einem Dashboard ausgegeben und können entsprechend bewertet werden.
+Dieses zeigt einem die Anzahl an erkannten Entitäten aufgeteilt auf die fünf Sinne an und vergleicht diese mit dem
+Branchendurchschnitt.
+Um den jeweiligen Branchendurchschnitt ermitteln zu können, muss vorab eine entsprechende Datenbasis aufgebaut werden,
+indem vorab Webseiten wie zu Anfang des Kapitels aufgezeigt durch den Image Classifier selektiert und das \ac{NER}-Modell
+bewertet werden.
+Die Ergebnisse sind jeweils inklusive der Brancheninformationen zu speichern.
+Abbildung~\ref{fig:dashboard} zeigt einen möglichen Prototypen, der im Rahmen des Consulting Projektes entwicklet wurde.
+\begin{figure}[H]
+	\centering
+	\caption[]{Dashboard Prototyp}
+	\label{fig:dashboard}
+	\includegraphics[width=1\textwidth]{dashboard.png}
+	\\
+	\textit{Quelle: Eigene Darstellung}
+\end{figure}
