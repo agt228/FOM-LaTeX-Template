@@ -84,7 +84,20 @@ Der Gesamtdatensatz beläuft sich auf rund 500 annotierten Bildern von Homepages
 
 
 \subsection{Modellentwicklung}
+
 \subsubsection{NER-Modell}
+Um den \ac{OSMI}-Index automatisiert bewerten zu können ist es unter anderem notwendig die textbasierten Inhalte einer
+Website auf sensorische Inhalte prüfen zu können.
+Hierfür eignet sich ein \ac{NER}-Modell, welches die sensorischen Wörter bzw\. Begrifflichkeiten als eigene Entität erkennt
+am meisten.
+Da das Anlernen einer NER-Modells über ein supervised learning Verfahren vorgenommen wird, bedarf es einer Datengrundlage,
+die vorannotierte Textpassagen enthält auf Basis dessen das Modell trainiert werden kann.
+Die Datengrundlage wurde bereits aus vergangenen Projekten durch die Extraktion von Rohtexten der jeweiligen Produktwebseiten
+vorgenommen.
+Im Rahmen dieses Consulting-Projektes wurden die Rohdaten genutzt, um diese vorzufiltern und anschließend innerhalb von
+Doccano zu labeln.
+Die gelabelten Textpassagen stellten anschließend die Datengrundlage für das Training des \ac{NER}-Modells dar.
+Um es den Annotierern im Vorfeld einfacher zu machen, wurden die Daten vorgefiltert auf mögliche Sensory Words.
 
 \subsubsection{Image Classification Modell}
 
