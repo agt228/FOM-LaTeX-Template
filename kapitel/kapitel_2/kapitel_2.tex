@@ -1,5 +1,5 @@
 \newpage
-\section{Praktische Umsetzung} \label{sec_praktische_umsetzung}
+\section{Praktische Umsetzung}\label{sec_praktische_umsetzung}
 
 In der praktischen Umsetzung werden die Grundlagen auf den Anwendungsfall angewendet.
 Hierfür wird zunächst der \ac{OSMI}-Index erläutert.
@@ -124,16 +124,31 @@ möglicher Aufbau:
 3.	Zusammenführung
 4.	Consultingteil
 
-\subsection{Klassifizierung von Webseiten} \label{subsec_klassifierung_websites}
-Zur Differenzierung von Produkt- und nicht-Produkt Webseiten soll ein Klassifizierungsmodell erstellt werden.
+\subsection{Klassifizierung von Webseiten}\label{subsec_klassifierung_websites}
+Es soll ein Modell entwickelt werden, dass in der Lage ist zwischen Produkt und nicht-Produktwebseiten zu unterscheiden.
+Wie Kapitel~\ref{sec_grundlagen_image_classification} deutlich geworden ist, kann dies von Klassifizierungsmodellen geleistet werden.
 Im Folgenden wird das Vorgehen mit den Schritten der Datenerhebung (\ref{subsubsec_class_datenerhebung}), der Datenverarbeitung (\ref{subsubsec_class_datenverarbeitung}) und des Modelltrainings (\ref{subsubsec_class_training}) näher beschrieben.
-\subsubsection{Datenerhebung} \label{subsubsec_class_datenerhebung}
-Aus vergangenen Arbeiten von Studierenden steht bereits eine Datengrundlage zur Verfügung mit Textauszügen, dem HTML Quelltext und heruntergeladenen Bildern von Unternehmenswebseiten.
-Für die Klassifizierung werden jedoch Bilder beziehungsweise Screenshots benötigt, die die gerenderte, visuelle Struktur der Webseite erfassen.
-Dies ist in den bestehenden Daten nicht gegeben und macht daher eine erneute Erhebung notwendig.
 
-Für diesen Zweck wurde zunächst ein Webcrawler auf Basis von Scrapy \footcite[\vglf][]{zotero-328} erstellt, der alle in der Vergangenheit gescrapten Webseiten aufruft und einen Screenshot der jeweiligen Seite erstellt.
+\subsubsection{Datenerhebung}\label{subsubsec_class_datenerhebung}
+Aus vergangenen Arbeiten von Studierenden steht bereits eine Datengrundlage zur Verfügung mit Textauszügen, dem HTML Quelltext und heruntergeladenen Bildern von Unternehmenswebseiten.
+Grundsätzlich sind dies die Elemente, die die semantischen und inhaltlichen Informationen der Webseite beinhalten, allerdings fehlen zwei für das äußere Erscheinungsbild der Webseite notwendige Elemente:
+Javascript, das für das dynamische Verhalten der Webseite verantwortlich ist und CSS, das für das Styling der HTML-Elemente verwendet wird.
+Wären diese Elemente vorhanden, so könnten sie - insofern sie in der richtigen Struktur vorliegen - dafür verwendet werden auch nachträglich, offline das Erscheinungsbild der Webseiten zu reproduzieren.
+
+Vor diesem Hintergrund konnten daher die bereits gesammelten Daten nicht verwendet werden und es war notwendig eigene Screenshots mit einem Webscrawler zu erstellen.
+Für die Klassifizierung werden jedoch Bilder beziehungsweise Screenshots benötigt, die die gerenderte, visuelle Struktur der Webseite erfassen.
+Dies ist in den bestehenden Daten nicht gegeben und machte daher eine erneute Erhebung notwendig.
+
+Für diesen Zweck wurde zunächst ein Webcrawler auf Basis von Scrapy \footcite[\vglf][]{zotero-328} erstellt,\footcite[\vglf][]{ostkamp2022} der alle in der Vergangenheit gescrapten Webseiten aufruft und einen Screenshot der jeweiligen Seite erstellt.
 Auf diese Weise wurden circa 10.000 Bilder gesammelt, die als Eingangsdaten für das Modell verwendet werden können.
+
+Zwei Probleme sind bei der Datenerhebung zutage getreten.
+Webseiten sind - gerade im Bereich von Unternehmen und Marketing - stetigen Veränderungen ausgesetzt. Dies zeigte sich auch in der erneuten Erfassung nach über zwei Jahren, da für einige Urls die Webseite nicht mehr verfügbar war (siehe auch Abbildung~\ref{fig:doccano_products}).
+Ein zweiter Aspekt der dynamischen Natur von Webseiten ist die Veränderung des Inhalts, der sich rückwirkend nicht so einfach feststellen lässt wie eine 404 Status Page, der dennoch aber nicht ausgeschlossen werden kann.
+
+Das zweite wesentliche Problem war technischer Natur und bezog sich auf die Ladezeiten der Webseiten. In einigen Fällen ist es vorgekommen, dass auch nach einer Wartezeit von 3 Sekunden, noch nicht alle Elemente der Webseite - insbesondere Bilder - geladen waren.
+Die gewählte Wartezeit sollte vor dem Hintergrund der Internetverbindung und der Ladezeit typischer Webseiten (Zitat) eigentlicht ausreichend sein, um eine vollständig geladene Seite zu erfassen.
+Die Autoren haben darauf verzichtet sie weiter zu erhöhen, da auch mit der gewählten Zeit bei 10000 Seiten ein Durchgang bereits 8 Stunden dauert und jede weitere Sekunde eine Verlängerun g von 3 Stunden bedeutet.
 
 \begin{figure}[H]
     \centering
@@ -146,7 +161,7 @@ Auf diese Weise wurden circa 10.000 Bilder gesammelt, die als Eingangsdaten für
 Da es sich bei der Klassifizierung um eine Supervised Learning Methode handelt, müssen die Daten daraufhin den Kategorien \textit{Product} und \textit{Non Product} zugeordnet werden.
 Dafür werden die Daten in die Annotationssoftware Doccano\footcite[\vglf][]{doccano-2018} geladen und dann, wie in Abbildung \ref{fig:doccano_products} dargestellt, den Kategorien zugeordnet.
 
-\subsubsection{Datenverarbeitung} \label{subsubsec_class_datenverarbeitung}
+\subsubsection{Datenverarbeitung}\label{subsubsec_class_datenverarbeitung}
 Im Schritt der Datenverarbeitung werden die Eingangsdaten in eine Form gebracht, in der sie für das Training des Modells verwendet werden können.
 Dazu werden die Bilder anhand des Exports der Annotationen aus Doccano in den Labeln gleichnamige Ordner verschoben.
 
@@ -155,7 +170,7 @@ Aus diesem Grund wurde dieser in einem weiteren Schritt entfernt.
 Darüber hinaus werden die Bilder im ersten Layer des Modells auf eine Größe von 224x224 Pixeln herunterskaliert, was eine gängige Größe für \aclp{CNN} darstellt.\footcite[\vglf][\pagef 79]{ghosh2019}
 
 
-\subsubsection{Training des Modells} \label{subsubsec_class_training}
+\subsubsection{Training des Modells}\label{subsubsec_class_training}
 Nachdem die Daten, wie in Kapitel \ref{subsubsec_class_datenverarbeitung} beschrieben, verarbeitet wurden, können Sie im weiteren Verlauf für das Training eines Modells verwendet werden.
 Dazu wurden die Daten wie im Deep Learning üblich, in Train und Validation Sets aufgeteilt um einen späteren Vergleich auf unbekannten Daten zu ermöglichen.
 \begin{figure}[!h]
@@ -175,7 +190,7 @@ Dazu wurden die Daten wie im Deep Learning üblich, in Train und Validation Sets
     \textit{Quelle: Eigene Darstellung}
     \\
 \end{figure}
-Abbildung \ref{fig:metricsTrain} stellt jeweils die Trainings- und Validierungsmetriken für die \textit{Accuracy} und den \textit{Loss} gegenüber.
+Abbildung~\ref{fig:metricsTrain} stellt jeweils die Trainings- und Validierungsmetriken für die \textit{Accuracy} und den \textit{Loss} gegenüber.
 Es ist erkennbar, dass die Graphen in beiden Abbildungen relativ früh auseinander gehen, was darauf hindeutet, dass ...
 Insgesamt muss gesagt werden, dass die erzielten Genauigkeiten und Losses weit von einem idealen Ergebnis entfernt liegen.
 
