@@ -150,7 +150,7 @@ Die Autoren haben darauf verzichtet sie weiter zu erhöhen, da auch mit der gew�
 	\textit{Quelle: Eigene Darstellung}
 \end{figure}
 Da es sich bei der Klassifizierung um eine Supervised Learning Methode handelt, müssen die Daten daraufhin den Kategorien \textit{Product} und \textit{Non Product} zugeordnet werden.
-Dafür werden die Daten in die Annotationssoftware Doccano\footcite[\vglf][]{doccano-2018} geladen und dann, wie in Abbildung \ref{fig:doccano_products} dargestellt, den Kategorien zugeordnet.
+Dafür werden die Daten in die Annotationssoftware Doccano~\footcite[\vglf][]{doccano-2018} geladen und dann, wie in Abbildung~\ref{fig:doccano_products} dargestellt, den Kategorien zugeordnet.
 
 \subsubsection{Datenverarbeitung}\label{subsubsec_class_datenverarbeitung}
 Im Schritt der Datenverarbeitung werden die Eingangsdaten in eine Form gebracht, in der sie für das Training des Modells verwendet werden können.
@@ -162,44 +162,45 @@ Darüber hinaus werden die Bilder im ersten Layer des Modells auf eine Größe v
 
 
 \subsubsection{Training des Modells}\label{subsubsec_class_training}
-Nachdem die Daten, wie in Kapitel \ref{subsubsec_class_datenverarbeitung} beschrieben, verarbeitet wurden, können Sie im weiteren Verlauf für das Training eines Modells verwendet werden.
+Nachdem die Daten, wie in Kapitel~\ref{subsubsec_class_datenverarbeitung} beschrieben, verarbeitet wurden, können Sie im weiteren Verlauf für das Training eines Modells verwendet werden.
 Dazu wurden die Daten wie im Deep Learning üblich, in Train und Validation Sets aufgeteilt um einen späteren Vergleich auf unbekannten Daten zu ermöglichen.
-\begin{figure}[!h]
+Aufgrund der geringen Menge der Eingangsdaten wurde \textit{Data Augmentation} verwendet um durch leichte Mutationen der Bilder durch Zoomen und eine vertikale Spiegelung Overfitting zu reduzieren.
+\begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{abbildungen/acc_train_val.png}
-        \caption {Accuracy}
-        \label{fig:metricsTrainAcc}
+        \caption{Ohne Data Augmentation}\label{fig:metricsTrainWOAugmentation}
     \end{subfigure}
     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{abbildungen/loss_train_val.png}
-        \caption {Loss}
-        \label{fig:metricsTrainLoss}
+        \caption{Mit Data Augmentation}\label{fig:metricsTrainWAugmentation}
     \end{subfigure}
-    \caption {Vergleich der Trainings- und Validierungsmetriken}
-    \label{fig:metricsTrain}
+    \caption{Vergleich der Trainings- und Validierungsmetriken mit und ohne Data Augmentation}\label{fig:metricsTrain}
     \textit{Quelle: Eigene Darstellung}
     \\
 \end{figure}
-Abbildung~\ref{fig:metricsTrain} stellt jeweils die Trainings- und Validierungsmetriken für die \textit{Accuracy} und den \textit{Loss} gegenüber.
+Abbildung~\ref{fig:metricsTrain} stellt jeweils die Trainings- und Validierungsmetriken für die \textit{Accuracy} und den \textit{Loss} gegenüber für das Training mit und ohne erweiterte (\textit{augmented}) Daten.
+Dabei gilt, dass die \textit{Accuracy} gegen eins gehen sollte und der \textit{Loss} gegen null.
 Es ist erkennbar, dass die Graphen in beiden Abbildungen relativ früh auseinander gehen, was darauf hindeutet, dass \ldots
+
+Dennoch ist erkennbar, dass die \textit{Data Augmentation} einen klaren Effekt auf den Trainingsverlauf hat. In Abbildung~\ref{fig:metricsTrainWAugmentation} bleiben die Training und Validation Accuracy über alle Epochen hinweg nah beieinander.
+In Abbildung~\ref{fig:metricsTrainWOAugmentation} ist das Overfitting jedoch deutlich erkennbar. 
+
 Insgesamt muss gesagt werden, dass die erzielten Genauigkeiten und Losses weit von einem idealen Ergebnis entfernt liegen.
 
-\subsection{Dashboard zur Ergebnisdarstellung} \label{subsec_dashboard}
-Nachdem das Modell zur Image Classification die relevanten Produktseiten eine Webseite identifiziert hat und das \ac{NER}-Modell
+\subsection{Dashboard zur Darstellung der Ergebnisse}\label{subsec_dashboard}
+Nachdem das Modell zur Image Classification die relevanten Produktseiten einer Webseite identifiziert hat und das \ac{NER}-Modell
 alle relevanten Textpassagen auf die fünf Sinnesentitäten geprüft und diese ausgezählt hat, werden die Ergebnisse
 in einem Dashboard ausgegeben und können entsprechend bewertet werden.
-Dieses zeigt einem die Anzahl an erkannten Entitäten aufgeteilt auf die fünf Sinne an und vergleicht diese mit dem
-Branchendurchschnitt.
+Dieses zeigt die Anzahl der erkannten Entitäten aufgeteilt auf die fünf Sinne an und vergleicht diese mit dem Branchendurchschnitt.
 Um den jeweiligen Branchendurchschnitt ermitteln zu können, muss vorab eine entsprechende Datenbasis aufgebaut werden,
-indem vorab Webseiten wie zu Anfang des Kapitels aufgezeigt durch den Image Classifier selektiert und das \ac{NER}-Modell
+indem vorab Webseiten wie zu Anfang des Kapitels aufgezeigt durch den Image Classifier selektiert und durch das \ac{NER}-Modell
 bewertet werden.
 Die Ergebnisse sind jeweils inklusive der Brancheninformationen zu speichern.
-Abbildung~\ref{fig:dashboard} zeigt einen möglichen Prototypen, der im Rahmen des Consulting Projektes entwicklet wurde.
+Abbildung~\ref{fig:dashboard} zeigt einen möglichen Prototypen, der im Rahmen des Consulting Projektes entwickelt wurde.
 \begin{figure}[H]
 	\centering
-	\caption[]{Dashboard Prototyp}
-	\label{fig:dashboard}
+	\caption[]{Dashboard Prototyp}\label{fig:dashboard}
 	\includegraphics[width=1\textwidth]{dashboard.png}
 	\\
 	\textit{Quelle: Eigene Darstellung}
