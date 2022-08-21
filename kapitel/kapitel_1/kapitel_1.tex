@@ -2,11 +2,11 @@
 \section{Theoretische Grundlagen}
 Im folgenden Teil der Ausarbeitung werden die theoretischen Grundlagen zum Verständnis der Ausarbeitung erläutert.
 Zunächst wird der \ac{OSMI} als Hautpaugenmerk erklärt. Es folgen der Oberbegriff Deep Learning und die dazugehörige Methode der Bildklassifizierung.
-Darauf folgt das \ac{NLP} mit der \ac{NER}.
+Darauf folgt das \acl{NLP} mit der \acl{NER}.
 
 \subsection{Online Sensory Marketing Index}
 
-Der Fokus in dieser Ausarbeitung liegt auf dem \acl{OSMI}. Es handelt sich dabei um ein Bewertungsinstrument, welches im Jahr 2018 entwickelt wurde.
+Der Fokus dieser Ausarbeitung liegt auf dem \acf{OSMI}. Es handelt sich dabei um ein Bewertungsinstrument, welches im Jahr 2018 entwickelt wurde.
 Ziel des \ac{OSMI} ist es, dass E-Commerce Webseiten im Hinblick auf deren sensorische Gestaltung bewertet werden und dementsprechend Verbesserungspotentiale aufgezeigt werden.\footcite[\vglf][\pagef 58]{hamacher2018}
 Unter einer sensorischen Gestaltung werden Parameter gefasst, die sich nach den Sinnen eines Menschen richten. Diese sind die Haptik, die Olfaktorik, die Akustik, die Gustatorik und die Visualität.\footcite[\vglf][\pagef 861 \& 862]{zou2018}
 Die Bewertung im \ac{OSMI} wird anhand verschiedener Indikatoren der einzelnen Sinne vorgenommen. Nachfolgend sind beispielhafte Indikatoren der einzelnen Sinne aufgeführt, die im \ac{OSMI} Berücksichtigung finden:
@@ -20,11 +20,11 @@ Die Bewertung im \ac{OSMI} wird anhand verschiedener Indikatoren der einzelnen S
     \item Visuelle: Farbgebung, dynamische Bilder, Oberfläche, … \footcite[\vglf][\pagef 41-56]{hamacher2018}
 \end{itemize}
 
-Die Evaluation der einzelnen Indikatoren wird in Form einer Tabelle dargestellt. Ein Beispiel ist am Ende dieses Kapitels aufgeführt ~\ref{fig:mymuesli}.
+Die Evaluation der einzelnen Indikatoren wird in Form einer Tabelle dargestellt. Ein Beispiel ist am Ende dieses Kapitels aufgeführt (Abbildung~\ref{fig:mymuesli}).
 Für eine Webseite wird jeder Indikator der fünf Sinne einzeln bewertet und auf Basis dessen letztendlich für jeden der fünf Parameter ein Wert zwischen 0 und 1 ermittelt.
 Eine Gewichtung zwischen den einzelnen Indikatoren wird dabei nicht vorgenommen. \\
 Im letzten Schritt zur Ermittlung des \ac{OSMI} wird über die Parameter der fünf Sinne das arithmetische Mittel berechnet.
-Dieser Wert liegt ebenfalls zwischen 0 und 1 und bildet den \ac{OSMI} einer Webseite. Dabei gilt, dass die Webseite erfolgreicher die Sensorik anspricht, wenn der OSMI-Index näher an einer 1 liegt.
+Dieser Wert liegt ebenfalls zwischen 0 und 1 und bildet den \ac{OSMI} einer Webseite. Dabei gilt, dass die Webseite stärker die Sensorik anspricht, wenn der OSMI-Index näher an einer 1 liegt.
 Liegt der Wert näher an einer 0 werden schlussfolgernd wichtige Elemente zur Ansprache der Sensorik nicht genutzt. \\ \footcite[\vglf][\pagef 57 \& 58]{hamacher2018}
 Die nachfolgende Tabelle zeigt ein Beispiel aus der Masterarbeit von K.Hamacher zum \ac{OSMI} der Webseite \textit{www.mymuesli.de}.
 
@@ -37,18 +37,18 @@ Die nachfolgende Tabelle zeigt ein Beispiel aus der Masterarbeit von K.Hamacher 
 \subsection{Deep Learning}
 
 Die Image Classification ist ein Anwendungsfall für die Technik des Deep Learning.
-Als Teilgebiet des Machine Learning bedient sich das Deep Learning mehrschichtiger neuronaler Netze, welche auf Basis großer Datenmengen bereits Erlerntes mit neuen Inhalten verknüpft und somit wiederum erneut lernt. \footcite[\vglf][\pagef 2 \& 3]{plaat2022}
+Als Teilgebiet des Machine Learning bedient sich das Deep Learning mehrschichtiger neuronaler Netze, welche auf Basis großer Datenmengen bereits Erlerntes mit neuen Inhalten verknüpft und somit wiederum erneut lernt. \footcite[\vglf][\pagef2 \& 3]{plaat2022}
 Deep Learning macht es möglich, dass eine Maschine selbstständig die Gewichtungen seines verwendeten Modells verbessert.
 Anwendungsbereiche für Deep Learning können beispielsweise im Customer Support, in der medizinischen Versorgung oder selbstfahrende Autos sein. \footcite[\vglf][\pagef 510 \& 511]{handa2021}
 Ein weiterer Anwendungsbereich kann die Objekterkennung sein, welcher nachfolgend beschrieben wird.
 
 \subsubsection{Image Classification}\label{sec_grundlagen_image_classification}
-Bei der Image Classification handelt es sich um eine Technik, bei der ein Objekt auf einem Bild einer bestimmten Klasse zuordnet wird. Als Ziel kann die genaue Identifizierung der Bildmerkmale verstanden werden. \footcite[\vglf][\pagef 2]{internationalconferenceoncomputercommunicationandinformatics2021}
-Eine Methode, die zur Image Classification eingesetzt werden kann ist das Concolutional Neural Network (\acp{CNN}) \footcite[\vglf][\pagef 1]{internationalconferenceonadvancesinelectronics2018}, welches nachfolgend näher erläutert wird.
+Bei der Image Classification handelt es sich um eine Technik, bei der ein Objekt auf einem Bild einer bestimmten Klasse zuordnet wird. Als Ziel kann die genaue Identifizierung der Bildmerkmale verstanden werden. \footcite[\vglf][\pagef2]{internationalconferenceoncomputercommunicationandinformatics2021}
+Eine Methode, die zur Image Classification eingesetzt werden kann ist das \ac{CNN}~\footcite[\vglf][\pagef1]{internationalconferenceonadvancesinelectronics2018}, welches nachfolgend näher erläutert wird.
 
 \subsubsection{Convolutional Neural Network}
-Das \ac{CNN} ist eine besondere Form eines künstlichen neuronalen Netzes. Es zeichnet sich durch mehrere Schichten wie den Convolutional- Layer, den Pooling Layer und den Fully-Connected Layer aus. \footcite[\vglf][\pagef 2]{internationalconferenceonadvancesinelectronics2018}
-Die Architektur ist in der Abbildung ~\ref{fig:CNN} dargestellt.
+Das \ac{CNN} ist eine besondere Form eines künstlichen neuronalen Netzes. Es zeichnet sich durch mehrere Schichten wie den Convolutional-Layer, den Pooling-Layer und den Fully-Connected Layer aus.~\footcite[\vglf][\pagef2]{internationalconferenceonadvancesinelectronics2018}
+Die Architektur ist in der Abbildung~\ref{fig:CNN} dargestellt.
 \\
 
 \begin{figure}[H]
@@ -58,21 +58,21 @@ Die Architektur ist in der Abbildung ~\ref{fig:CNN} dargestellt.
 \end{figure}
 
 In den Schichten der Convolution werden die Eingabebilder analysiert und Merkmale (zum Beispiel Linien oder Kanten) der Bilder erkannt und extrahiert.
-Die Verarbeitung dieser Merkmale erfolgt in Matrizen, die Feature Maps genannt werden. \\ \footcite[\vglf][\pagef 327 \& 328]{Goodfellow-2016}
+Die Verarbeitung dieser Merkmale erfolgt in Matrizen, die Feature Maps genannt werden.~\footcite[\vglf][\pagef327 \& 328]{Goodfellow-2016} \\
 Die Feature Maps als Ausgabe der Convolutional Layer werden darauf in den Pooling Layer eingegeben.
-Die Größe der Bilder wird in dieser Schicht reduziert und durch Methoden wie dem Max-Pooling nur die wesentlichen Merkmale weitergegeben.  \footcite[\vglf][\pagef 335-339]{Goodfellow-2016}
+Die Größe der Bilder wird in dieser Schicht reduziert und durch Methoden wie dem Max-Pooling nur die wesentlichen Merkmale weitergegeben.~\footcite[\vglf][\pagef 335-339]{Goodfellow-2016}
 Alle anderen Informationen sind für die Verarbeitung überflüssig und werden verworfen. Ergebnis dieser Schicht ist die gleiche Anzahl an Feature Maps, allerdings in komprimierter Form. \\
-Der Fully-Connected Layer bildet den Abschluss der \ac{CNN}-Architektur. Jeder Knoten in der Ausgabeschicht ist hier direkt mit einem Knoten der vorgelagerten Schicht verbunden. \footcite[\vglf][\pagef 266]{aggarwal2021}
-Mithilfe einer Linearkombination und einer Aktivierungsfunktion wird schlussendlich das Bild klassifiziert. Die Zuordnung zu einer Klasse erfolgt dabei auf Basis einer Wahrscheinlichkeit. \footcite[\vglf][\pagef 696]{tang2022}
+Der Fully-Connected Layer bildet den Abschluss der \ac{CNN}-Architektur. Jeder Knoten in der Ausgabeschicht ist hier direkt mit einem Knoten der vorgelagerten Schicht verbunden.~\footcite[\vglf][\pagef 266]{aggarwal2021}
+Mithilfe einer Linearkombination und einer Aktivierungsfunktion wird schlussendlich das Bild klassifiziert. Die Zuordnung zu einer Klasse erfolgt dabei auf Basis einer Wahrscheinlichkeit.~\footcite[\vglf][\pagef 696]{tang2022}
 
 \subsection{Natural Language Processing}
 Die \acl{NER} ist eine Technik, welche dem Oberbegriff des \acl{NLP} zugeordnet wird. Das \ac{NLP} beschäftigt sich mit der Verarbeitung und dem Verständnis der menschlichen Sprache durch einen Computer.
 Ziel dieser Techniken ist es eine direkte Kommunikation zwischen dem Menschen und dem Computer mithilfe der Sprache herzustellen. Die Fachgebiete der Computerlinguistik, Informatik, Kognitionswissenschaft und künstlicher Intelligenz werden hier vereint.
-Anwendungsfälle können beispielsweise die Extraktion der Bedeutung von Sätzen oder Satzteilen oder auch die Erkennung von Satzzusammenhängen sein. \footcite[\vglf][\pagef 1 \& 2]{deng2018} Die populärste Funktion des \ac{NLP} ist die \acf{NER}. \footcite[\vglf][\pagef 299]{strobl2022}
+Anwendungsfälle können beispielsweise die Extraktion der Bedeutung von Sätzen oder Satzteilen oder auch die Erkennung von Satzzusammenhängen sein.~\footcite[\vglf][\pagef 1 \& 2]{deng2018} Die populärste Funktion des \ac{NLP} ist die \acf{NER}.~\footcite[\vglf][\pagef 299]{strobl2022}
 
 \subsubsection{Named Entity Recognition}
-Die \acl{NER} hat zur Aufgabe automatisiert Entitäten in einem Textdokument zu finden und zu klassifizieren.\footcite[\vglf][\pagef 211]{kulkrni2022} Letzteres geschieht anhand zuvor definierter Kategorien.
-Eine Entität muss dabei nicht unbedingt nur aus einem einzelnen Wort bestehen, sondern kann auch eine Reihe von Wörtern umfassen, solange sie sich auf dieselbe Sache beziehen.\footcite[\vglf][\pagef 299]{strobl2022}
+Die \acl{NER} hat zur Aufgabe automatisiert Entitäten in einem Textdokument zu finden und zu klassifizieren.~\footcite[\vglf][\pagef211]{kulkarni2022} Letzteres geschieht anhand zuvor definierter Kategorien.
+Eine Entität muss dabei nicht unbedingt nur aus einem einzelnen Wort bestehen, sondern kann auch eine Reihe von Wörtern umfassen, solange sie sich auf dieselbe Sache beziehen.~\footcite[\vglf][\pagef 299]{strobl2022}
 
 \subsubsection{Vorgehen bei der NER}
 In der \ac{NER}-Technik werden zwei Schritte durchgeführt, um zu Ergebnissen zu gelangen:
@@ -83,19 +83,18 @@ In der \ac{NER}-Technik werden zwei Schritte durchgeführt, um zu Ergebnissen zu
 \end{enumerate}
 
 
-Im ersten Schritt wird geprüft, ob eine Wortfolge eine Entität bildet. Die Anfangs- und Endgrenzen der Entitäten werden hierbei festgelegt. Der zweite Schritt hat zum Ziel die zuvor definierte Entität in eine der zuvor definierten Klassen einzuordnen. ~\footcite[\vglf][\pagef 35]{bast2016}
-Häufig verwendete Klassen sind beispielsweise Orte, Namen oder Organisationen, welche unter die generischen Kategorien fallen. Des Weiteren gibt es domänenspezifische Kategorien wie zum Beispiel Proteine, Enzyme oder Gene. ~\footcite[\vglf][\pagef 1]{li.2018}
+Im ersten Schritt wird geprüft, ob eine Wortfolge eine Entität bildet. Die Anfangs- und Endgrenzen der Entitäten werden hierbei festgelegt. Der zweite Schritt hat zum Ziel die zuvor definierte Entität in eine der zuvor definierten Klassen einzuordnen.~\footcite[\vglf][\pagef 35]{bast2016}
+Häufig verwendete Klassen sind beispielsweise Orte, Namen oder Organisationen, welche unter die generischen Kategorien fallen. Des Weiteren gibt es domänenspezifische Kategorien wie zum Beispiel Proteine, Enzyme oder Gene.~\footcite[\vglf][\pagef 1]{li.2018}
 
 
 Zur Durchführung der beiden Schritte gibt es verschiedene Ansätze, die angewendet werden können. Ausgehend von den annotierten Datensätzen, die beispielsweise aufgrund von manuell erstellten Regeln oder auf Basis von Kontextähnlichkeiten generiert werden, werden Modelle mithilfe von Machine Learning entwickelt.
-Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur \ac{NER}. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden. ~\footcite[\vglf][\pagef 5]{li.2018}
+Für zuvor ungesehene Daten ermitteln die Modelle Vorhersagemodelle zur Erkennung und Kategorisierung der Entitäten. Eine weitere Möglichkeit ist der Einsatz von Deep Learning zur \ac{NER}. In diesem Ansatz können auch nicht-lineare Zusammenhänge erkannt und gelernt werden.~\footcite[\vglf][\pagef 5]{li.2018}
 \\
-Ein Beispiel für ein Textdokument, in dem die \ac{NER} Technik angewendet wurde, ist in Abbildung ~\ref{fig:NLP} dargestellt.\\
+Ein Beispiel für ein Textdokument, in dem die \ac{NER} Technik angewendet wurde, ist in Abbildung~\ref{fig:NLP} dargestellt.\\
 
 
 \begin{figure}[H]
-    \caption{Beispiel der \ac{NER} Technik}
-    \label{fig:NLP}
+    \caption{Beispiel der \ac{NER} Technik}\label{fig:NLP}
     \includegraphics[width=1\textwidth]{NLP.png}
     \textit{Quelle: Eigene Darstellung}
 \end{figure}
@@ -106,7 +105,7 @@ Zur Ermittlung dieser muss zunächst die Anzahl der Entitäten mit verschiedenen
 \begin{itemize}
     \item \ac{FP}: Eine Entität wurde erkannt, obwohl sie keine darstellt
     \item \ac{FN}: Eine Entität wurde nicht erkannt, obwohl sie eine darstellt
-    \item \ac{TP}: Eine Entität wurde richtig erkannt ~\footcite[\vglf][\pagef 2 f.]{larner2021}
+    \item \ac{TP}: Eine Entität wurde richtig erkannt~\footcite[\vglf][\pagef 2 f.]{larner2021}
 \end{itemize}
 
 Die Precision zeigt das Verhältnis zwischen richtig erkannten Entitäten und der Gesamtheit der identifizierten Entitäten an. Die Formel lautet wir folgt:

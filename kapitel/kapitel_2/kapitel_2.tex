@@ -31,38 +31,31 @@ Sowohl in der Literatur als auch in bereits etablierten, gut entwickelten und ve
 des Sensory Marketings sehr rar vertreten.
 Das bedeutet auch, dass im Hinblick auf den jüngst publizierten \ac{OSMI}-Index ebenfalls bisher wenig technische Entwicklungen
 vorgenommen worden sind.
-Zwar existieren in der Literatur diverse NLP-Modelle wie beispielsweise das generelle Spacy-Modell oder der sogenannte BERT
+Zwar existieren in der Literatur diverse NLP-Modelle wie beispielsweise das Spacy-Modell\textcolor{red}{Zitat} oder der sogenannte BERT\textcolor{red}{Zitat}
 und von beiden erwähnten Modellen Spezialisierungen wie beispielsweise SciSpacy, BioBERT, ESG-BERT, etc\., allerdings ist
-bisher kein NLP-Modell auf Marketingkontexte trainiert und publiziert worden, sodass die Notwendigkeit zur Entwicklung eines
-eigenen Modells im Kontext des Consulting-Auftrags bestand.
+bisher kein \ac{NLP}-Modell auf Marketingkontexte trainiert und publiziert worden, sodass die Notwendigkeit zur Entwicklung eines
+eigenen Modells im Kontext des Consulting-Auftrags besteht.
 Um im Vorfeld der Website-Bewertung jedoch lediglich nur die relevanten URLs mit Produktinhalt zu selektieren, wurde für den zu
 entwickelnden Image Classifier ebenfalls ein von Grund auf neu zu entwickelndes Modell benötigt, da es innerhalb der Literatur
 bislang kein derartig existierendes Modell publiziert wurde auf das zurückgegriffen werden konnte.
 
-Die Trainingsdaten wurden mithilfe von Doccano generiert.
+Die Trainingsdaten wurden mithilfe von Doccano\textcolor{red}{Zitat} generiert.
 Doccano ist ein open source Tool, welches zur Annotation von Text und Bilddaten entwickelt wurde.
 Mit diesem Instrument ist es also möglich Textpassagen und Bilder hochzuladen und Annotationen vorzunehmen, um Daten zur
 Entwicklung von Aufträgen wie \acl{NER}, Textzusammenfassungen, Sentimentanalysen, Image Classification, etc.\ zu generieren.
 
 Im Rahmen des Consulting-Projekts wurden zwei Doccano-Projekte gestartet.
-Ein Projekt wurde für das Annotieren von Textpassagen zur Entwicklung eines Named-Entity-Recognition Modells erstellt.
+Ein Projekt wurde für das Annotieren von Textpassagen zur Entwicklung eines \acl{NER} Modells erstellt.
 Im zweiten Projekt wurden Screenshots von Produktseiten und Nicht-Produktseiten annotiert.
 
 Die Textpassagen, die annotiert wurden, sind im Rahmen des Consulting-Projekts zur Verfügung gestellt worden und entstammen
 Webscraping-Ergebnissen von Vorgängerprojekten.
-Hier wurden die fünf Sinne
-\begin{itemize}
-	\item Sight
-	\item Smell
-	\item Sound
-	\item Taste
-	\item Touch
-\end{itemize}
-als Label festgelegt und konnten im Rahmen des Annotationsprozesses ausgewählt werden.
+Hier wurden die fünf Sinne \textit{Sight}, \textit{Smell}, \textit{Sound}, \textit{Taste} und \textit{Touch} als Label festgelegt und konnten im Rahmen des Annotationsprozesses ausgewählt werden.
+
 Die in Abbildung~\ref{fig:annotation_ner} dargestellten horizontalen Balken geben den Annotationsstand wieder, auf Basis dessen
 das Modell zur Erkennung von Entitäten entwickelt wurde.
-Hier ist zu erkennen, dass die Entität \glqq{Sight}\grqq am häufigsten annotiert worden ist, während die Trainigs- und Testdaten für
-die Entität \glqq{Smell}\grqq, \glqq{Sound}\grqq sowie \glqq{Taste}\grqq kaum vertreten sind.
+Hier ist zu erkennen, dass die Entität \textit{Sight} am häufigsten annotiert worden ist, während die Trainings- und Testdaten für
+die Entität \textit{Smell}, \textit{Sound} sowie \textit{Taste} kaum vertreten sind.
 \begin{figure}[H]
 	\caption{Annotationsstand Textlabeling}\label{fig:annotation_ner}
 	\includegraphics[width=0.9\textwidth]{annotationen_ner.png}
@@ -70,9 +63,8 @@ die Entität \glqq{Smell}\grqq, \glqq{Sound}\grqq sowie \glqq{Taste}\grqq kaum v
 	Quelle: Eigene Darstellung
 \end{figure}
 
-Die zu annotierenden Bilddaten von Produkt- und Nicht-Produktseiten wurden im Rahmen des behandelten Projektes selbständig
-generiert.
-Abbildung~\ref{fig:annotation_imgclf} zeigt, dass zur Modellentwicklung für den Image Classifier eine fast Gleichverteilung zwischen Produkt-
+Die zu annotierenden Bilddaten von Produkt- und Nicht-Produktseiten wurden im Rahmen des behandelten Projektes selbstständig generiert.
+Abbildung~\ref{fig:annotation_imgclf} zeigt, dass zur Modellentwicklung für den Image Classifier eine annähernde Gleichverteilung zwischen Produkt-
 und Nicht-Produktseiten zugrunde gelegt wird.
 Der Gesamtdatensatz beläuft sich auf rund 500 annotierten Bildern von Homepages.
 \begin{figure}[H]
