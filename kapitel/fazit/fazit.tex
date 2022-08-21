@@ -1,25 +1,24 @@
 \section{Fazit}
-
 Das Consulting-Projekt hatte zum Ziel einen Beitrag zur automatisierten und objektiven Quantifizierung des
-\ac{OSMI}-Index zu Leisten.
+\ac{OSMI}-Index zu leisten.
 Hierfür wurde das in Kapitel~\ref{subsec_osmi} vorgestellte Zielbild erarbeitet und entsprechend umgesetzt.
 Zum Abgabestand der vorliegenden Projektarbeit sind die einzelnen Ansätze und Modelle entwickelt worden.
 Es wurde sowohl der Image Classifier zur Identifikation der relevanten Produktseiten programmiert als auch das \ac{NER}-Modell
 entwickelt, welches die sensorischen Entitäten aus den Texten heraus extrahieren kann.
-Darüber hinaus wurde der Prototyp in Form einer Webpage entworfen, welcher schlussendlich die Ergebnisse der Analyse
-zusammenfassen soll und die zu bewertende Website im Vergleich zum Branchenschnitt oder auch zum optimalen \ac{OSMI}-Wert
+Darüber hinaus wurde der Prototyp einer Webpage entworfen, welcher die Ergebnisse der Analyse
+für den Endnutzer zugänglich machen soll indem sie die zu bewertende Website im Vergleich zum Branchenschnitt und dem optimalen \ac{OSMI}-Wert
 der Branche darstellt.
 
 Die größte Programmierarbeit des Zielbildes wurde im Rahmen des Consulting-Projektes durch die Autoren dieser Projektarbeit
 geleistet.
 Die zur Verfügung stehenden Trainings- und Testdaten sind jedoch nicht ausreichend genug gewesen, um präzise Modelle
 zu entwickeln.
-Das heißt, dass beispielsweise der Image Classifier eine Produktseite von einer Nicht-Produktseite im aktuellen Zustand vergleichbar
-mit den Chancen bei einem Münzwurf \glqq{Kopf}\grqq~oder \glqq{Zahl}\grqq~zu erhalten bewertet.
-Das \ac{NER}-Modell ist von der Performance vergleichsweise noch schlechter.
-Zwar standen der Projektgruppe für beide Modelle ausreichend viele Rohdaten zur Verfügung.
-Diese hätten jedoch alle annotiert werden müssen, wofür im Rahmen der Projektdauer wenig zeitliche
-Ressourcen vorhanden waren.
+Das heißt in Bezug auf den Image Classifier, dass dieser Produktseiten von Nicht-Produktseiten mit rund 60\% Genauigkeit underscheidet,
+was nur unwesentlich besser ist als die Chancen eines Münzwurfes für \glqq{Kopf}\grqq{} oder \glqq{Zahl}\grqq{}.
+Das \ac{NER}-Modell ist vergleichsweise sogar noch weniger genau. Es erreicht eine \textit{Accuracy} von \textcolor{red}{15\%},
+wodurch es in diesem Zustand noch nicht für einen produktiven Einsatz verwendbar ist. 
+Zwar standen der Projektgruppe für beide Modelle ausreichend viele Rohdaten zur Verfügung, jedoch wurden sie nicht alle annotiert. Dafür standen im Rahmen der Projektdauer zu zeitlich zu
+wenige Ressourcen zur Verfügung.
 
 
 Was ist noch offen?
@@ -29,6 +28,9 @@ Funktion zur Berechnung des OSMI-Indexes auf Basis unserer Modellinputs
 
 Ausblick  / Entwicklungspotential:
 Speech-to-Text-Implementierung, um Sound und Videodateien verarbeiten zu können
+
+Dem Anspruch der vollständig automatisierten Erfassung des \ac{OSMI} konnte die Arbeit ebenfalls nicht ganz gerecht werden. So existieren alle dafür notwendigen Teile wie das Scraping der Webseite~\footcite[\vglf][]{ostkamp2022a}, die Bildklassifizierung und die \acl{NER} des Inhalts sowie die Darstellung der Ergebnisse~\footcite[\vglf][]{ostkamp2022b}~\footcite[\vglf][]{ostkamp2022c},
+jedoch wurden sie nicht miteinander integriert.
 
 In dieser Arbeit wurden Text und Bilder zur automatisierten Berechnung des \ac{OSMI}-Indexes verwendet. Was jedoch nicht berücksichtigt wurde, sind dynamische Medien wie Video und Ton.
 Diese sind ebenfalls für den OSMI relevant und könnten daher in zukünftigen Arbeiten betrachtet werden um zur Berechnung des OSMI den wirklich vollständigen Inhalt einer Webseite zu betrachten.
