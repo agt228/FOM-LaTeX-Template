@@ -31,31 +31,30 @@ Sowohl in der Literatur als auch in bereits etablierten, gut entwickelten und ve
 des Sensory Marketings sehr rar vertreten.
 Das bedeutet auch, dass im Hinblick auf den jüngst publizierten \ac{OSMI}-Index ebenfalls bisher wenig technische Entwicklungen
 vorgenommen worden sind.
-Zwar existieren in der Literatur diverse NLP-Modelle wie beispielsweise das Spacy-Modell\textcolor{red}{Zitat} oder der sogenannte BERT\textcolor{red}{Zitat}
-und von beiden erwähnten Modellen Spezialisierungen wie beispielsweise SciSpacy, BioBERT, ESG-BERT, etc\., allerdings ist
-bisher kein \ac{NLP}-Modell auf Marketingkontexte trainiert und publiziert worden, sodass die Notwendigkeit zur Entwicklung eines
-eigenen Modells im Kontext des Consulting-Auftrags besteht.
+Zwar existieren in der Literatur diverse NLP-Modelle wie beispielsweise das Spacy-Modell~\footcite[\vglf][]{spacy2017} oder der sogenannte BERT~\footcite[\vglf][]{devlin2018}
+und von beiden erwähnten Modellen Spezialisierungen wie beispielsweise SciSpacy, BioBERT, ESG-BERT, allerdings ist
+bisher kein \ac{NLP}-Modell auf Marketingkontexte trainiert und publiziert worden. Daher besteht die Notwendigkeit zur Entwicklung eines
+eigenen Modells im Kontext des Consulting-Auftrags.
 Um im Vorfeld der Website-Bewertung jedoch lediglich nur die relevanten URLs mit Produktinhalt zu selektieren, wurde für den zu
 entwickelnden Image Classifier ebenfalls ein von Grund auf neu zu entwickelndes Modell benötigt, da es innerhalb der Literatur
 bislang kein derartig existierendes Modell publiziert wurde auf das zurückgegriffen werden konnte.
 
-Die Trainingsdaten wurden mithilfe von Doccano\textcolor{red}{Zitat} generiert.
-Doccano ist ein open source Tool, welches zur Annotation von Text und Bilddaten entwickelt wurde.
+Die Trainingsdaten wurden mithilfe von Doccano generiert.
+Doccano~\footcite[\vglf][]{doccano-2018} ist eine Open Source Software, welche zur Annotation von Text und Bilddaten entwickelt wurde.
 Mit diesem Instrument ist es also möglich Textpassagen und Bilder hochzuladen und Annotationen vorzunehmen, um Daten zur
 Entwicklung von Aufträgen wie \acl{NER}, Textzusammenfassungen, Sentimentanalysen, Image Classification, etc.\ zu generieren.
 
 Im Rahmen des Consulting-Projekts wurden zwei Doccano-Projekte gestartet.
 Ein Projekt wurde für das Annotieren von Textpassagen zur Entwicklung eines \acl{NER} Modells erstellt.
-Im zweiten Projekt wurden Screenshots von Produktseiten und Nicht-Produktseiten annotiert.
+Im zweiten Projekt wurden Screenshots von Produktseiten und Nicht-Produktseiten annotiert um ein Classification Modell erstellen zu können.
 
 Die Textpassagen, die annotiert wurden, sind im Rahmen des Consulting-Projekts zur Verfügung gestellt worden und entstammen
 Webscraping-Ergebnissen von Vorgängerprojekten.
-Hier wurden die fünf Sinne \textit{Sight}, \textit{Smell}, \textit{Sound}, \textit{Taste} und \textit{Touch} als Label festgelegt und konnten im Rahmen des Annotationsprozesses ausgewählt werden.
+Hier wurden die fünf Sinne \textit{Sight}, \textit{Smell}, \textit{Sound}, \textit{Taste} und \textit{Touch} als Label festgelegt, da dies die Entitäten sind die später auch für den OSMI nach Hamacher notwendig sind.
 
-Die in Abbildung~\ref{fig:annotation_ner} dargestellten horizontalen Balken geben den Annotationsstand wieder, auf Basis dessen
-das Modell zur Erkennung von Entitäten entwickelt wurde.
-Hier ist zu erkennen, dass die Entität \textit{Sight} am häufigsten annotiert worden ist, während die Trainings- und Testdaten für
-die Entität \textit{Smell}, \textit{Sound} sowie \textit{Taste} kaum vertreten sind.
+Abbildung~\ref{fig:annotation_ner} stellt ein Balkendiagramm über den Annotationsstand dar, das die Häufigkeit der einzelnen Labels aufzeigt. Diese Verteilung der Daten bildet die Basis auf der das Modell zur Erkennung von Entitäten trainiert wurde.
+Es ist zu erkennen, dass die Entität \textit{Sight} am häufigsten annotiert worden ist, während die Trainings- und Testdaten für
+die Entitäten \textit{Smell}, \textit{Sound} und \textit{Taste} kaum vertreten sind.
 \begin{figure}[H]
 	\caption{Annotationsstand Textlabeling}\label{fig:annotation_ner}
 	\includegraphics[width=0.9\textwidth]{annotationen_ner.png}
@@ -63,9 +62,9 @@ die Entität \textit{Smell}, \textit{Sound} sowie \textit{Taste} kaum vertreten 
 	Quelle: Eigene Darstellung
 \end{figure}
 
-Die zu annotierenden Bilddaten von Produkt- und Nicht-Produktseiten wurden im Rahmen des behandelten Projektes selbstständig generiert.
+Die zu annotierenden Bilddaten von Produkt- und Nicht-Produktseiten wurden im Rahmen des behandelten Projektes erneut gesammelt (siehe auch Abschnitt \ref{subsubsec_class_datenverarbeitung}).
 Abbildung~\ref{fig:annotation_imgclf} zeigt, dass zur Modellentwicklung für den Image Classifier eine annähernde Gleichverteilung zwischen Produkt-
-und Nicht-Produktseiten zugrunde gelegt wird.
+und Nicht-Produktseiten zugrunde gelegt werden konnte.
 Der Gesamtdatensatz beläuft sich auf rund 500 annotierten Bildern von Homepages.
 \begin{figure}[H]
 	\caption{Annotationsstand Textlabeling}\label{fig:annotation_imgclf}
@@ -80,9 +79,9 @@ Der Gesamtdatensatz beläuft sich auf rund 500 annotierten Bildern von Homepages
 \subsubsection{NER-Modell}
 Um den \ac{OSMI}-Index automatisiert bewerten zu können ist es unter anderem notwendig die textbasierten Inhalte einer
 Website auf sensorische Inhalte prüfen zu können.
-Hierfür eignet sich ein \ac{NER}-Modell, welches die sensorischen Wörter bzw\. Begrifflichkeiten als eigene Entität erkennt
+Hierfür eignet sich ein \ac{NER}-Modell, welches die sensorischen Wörter bzw. Begrifflichkeiten als eigene Entität erkennt
 am meisten.
-Da das Anlernen einer NER-Modells über ein supervised learning Verfahren vorgenommen wird, bedarf es einer Datengrundlage,
+Da das Anlernen eines NER-Modells über ein Supervised Learning Verfahren vorgenommen wird, bedarf es einer Datengrundlage,
 die vorannotierte Textpassagen enthält auf Basis dessen das Modell trainiert werden kann.
 Die Datengrundlage wurde bereits aus vergangenen Projekten durch die Extraktion von Rohtexten der jeweiligen Produktwebseiten
 vorgenommen.
@@ -92,28 +91,37 @@ Die gelabelten Textpassagen stellten anschließend die Datengrundlage für das T
 Um es den Annotierern im Vorfeld einfacher zu machen, wurden die Daten vorgefiltert auf mögliche Sensory Words.
 
 \subsubsection{Image Classification Modell}
+% \textcolor{red}{
+% 	\begin{itemize}
+% 		\item Gewichtung der Indikatoren wird im \ac{OSMI} nicht vorgenommen, weil nicht zweifelsfrei zu
+% 		argumentieren welcher mehr oder weniger bewertet wird (bisher keine Forschungsarbeiten
+% 		dazu)
+% 		\item Indikatoren werden einzeln bewertet \& letztendlich fünf Parameter zw. 0 \& 1 liegen vor.
+% 		Daraus ergibt sich Gesamt-Index (ohne Gewichtung, arithmetischer Durchschnitt) für jede
+% 		Webseite > auch zw. 0 \& 1 und ist dann der \ac{OSMI}-Index
+% 		\item Je näher der \ac{OSMI} an einer 1, desto erfolgreicher spricht die Webseite die Sensorik an. Wert
+% 		nahe 0 erhält wichtige Elemente entsprechend nicht \& erfüllt die Indikatoren nicht
+% 		\item BSP eines \ac{OSMI}-Indexes: Bild einfügen aus der Masterarbeit mymuesli.de oder so
+% 	\end{itemize}
+% }
 
--Gewichtung der Indikatoren wird im \ac{OSMI} nicht vorgenommen, weil nicht zweifelsfrei zu
-argumentieren welcher mehr oder weniger bewertet wird (bisher keine Forschungsarbeiten
-dazu) \\
--Indikatoren werden einzeln bewertet \& letztendlich fünf Parameter zw. 0 \& 1 liegen vor.
-Daraus ergibt sich Gesamt-Index (ohne Gewichtung, arithmetischer Durchschnitt) für jede
-Webseite > auch zw. 0 \& 1 und ist dann der \ac{OSMI}-Index \\
--Je näher der \ac{OSMI} an einer 1, desto erfolgreicher spricht die Webseite die Sensorik an. Wert
-nahe 0 erhält wichtige Elemente entsprechend nicht \& erfüllt die Indikatoren nicht \\
--BSP eines \ac{OSMI}-Indexes: Bild einfügen aus der Masterarbeit mymuesli.de oder so
-
-
-
-möglicher Aufbau:
-1.	Bildklassifizierung
-	a.Datenset
-	b.Umsetzung
-2.	NER
-	a.	Datenset
-	b.	Umsetzung
-3.	Zusammenführung
-4.	Consultingteil
+% \textcolor{red}{
+% möglicher Aufbau:
+% \begin{itemize}
+% 	\item Bildklassifizierung
+% 	\begin{itemize}
+% 		\item Datenset
+% 		\item Umsetzung
+% 	\end{itemize}
+% 	\item NER
+% 	\begin{itemize}
+% 		\item Datenset
+% 		\item Umsetzung
+% 	\end{itemize}
+% 	\item Zusammenführung
+% 	\item Consultingteil
+% \end{itemize}
+% }
 
 \subsection{Klassifizierung von Webseiten}\label{subsec_klassifierung_websites}
 Es soll ein Modell entwickelt werden, dass in der Lage ist zwischen Produkt und nicht-Produktwebseiten zu unterscheiden.
@@ -130,7 +138,7 @@ Vor diesem Hintergrund konnten daher die bereits gesammelten Daten nicht verwend
 Für die Klassifizierung werden jedoch Bilder beziehungsweise Screenshots benötigt, die die gerenderte, visuelle Struktur der Webseite erfassen.
 Dies ist in den bestehenden Daten nicht gegeben und machte daher eine erneute Erhebung notwendig.
 
-Für diesen Zweck wurde zunächst ein Webcrawler auf Basis von Scrapy \footcite[\vglf][]{zotero-328} erstellt,\footcite[\vglf][]{ostkamp2022} der alle in der Vergangenheit gescrapten Webseiten aufruft und einen Screenshot der jeweiligen Seite erstellt.
+Für diesen Zweck wurde zunächst ein Webcrawler auf Basis von Scrapy~\footcite[\vglf][]{zotero-328} erstellt,\footcite[\vglf][]{ostkamp2022a} der alle in der Vergangenheit gescrapten Webseiten aufruft und einen Screenshot der jeweiligen Seite erstellt.
 Auf diese Weise wurden circa 10.000 Bilder gesammelt, die als Eingangsdaten für das Modell verwendet werden können.
 
 Zwei Probleme sind bei der Datenerhebung zutage getreten.
