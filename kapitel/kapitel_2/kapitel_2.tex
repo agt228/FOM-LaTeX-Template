@@ -76,20 +76,6 @@ Der Gesamtdatensatz beläuft sich auf rund 500 annotierten Bildern von Homepages
 
 \subsection{Modellentwicklung}
 
-\subsubsection{NER-Modell}
-Um den \ac{OSMI}-Index automatisiert bewerten zu können ist es unter anderem notwendig die textbasierten Inhalte einer
-Website auf sensorische Inhalte prüfen zu können.
-Hierfür eignet sich ein \ac{NER}-Modell, welches die sensorischen Wörter bzw. Begrifflichkeiten als eigene Entität erkennt
-am meisten.
-Da das Anlernen eines NER-Modells über ein Supervised Learning Verfahren vorgenommen wird, bedarf es einer Datengrundlage,
-die vorannotierte Textpassagen enthält auf Basis dessen das Modell trainiert werden kann.
-Die Datengrundlage wurde bereits aus vergangenen Projekten durch die Extraktion von Rohtexten der jeweiligen Produktwebseiten
-vorgenommen.
-Im Rahmen dieses Consulting-Projektes wurden die Rohdaten genutzt, um diese vorzufiltern und anschließend innerhalb von
-Doccano zu labeln.
-Die gelabelten Textpassagen stellten anschließend die Datengrundlage für das Training des \ac{NER}-Modells dar.
-Um es den Annotierern im Vorfeld einfacher zu machen, wurden die Daten vorgefiltert auf mögliche Sensory Words.
-
 \subsubsection{Image Classification Modell}
 % \textcolor{red}{
 % 	\begin{itemize}
@@ -195,7 +181,38 @@ Dennoch ist erkennbar, dass die \textit{Data Augmentation} einen klaren Effekt a
 In Abbildung~\ref{fig:metricsTrainWOAugmentation} gehen beide Kurven nach der zweiten Epoche auseinander. Dies deutet darauf hin, dass das Modell auf den Trainingsdatensatz overfitted und demnach nicht die richtigen Features der Bilder erlernt.
 
 Insgesamt muss gesagt werden, dass auch mit Data Augmentation die erzielten Genauigkeiten und Losses weit von einem idealen Ergebnis entfernt liegen.
-So ist die beste erzielte Genauigkeit mit 67.5\% für ein Klassifizierungsmodell mit lediglich zwei Labeln noch sehr gering und würde wahrscheinlich auf Basis der Geringen Menge an Trainingsdaten schlecht generalisieren, dass heißt auf andere anwendbar sein.
+So ist die beste erzielte Genauigkeit mit 67.5\% für ein Klassifizierungsmodell mit lediglich zwei Labeln noch sehr gering und würde wahrscheinlich auf Basis der geringen Menge an Trainingsdaten schlecht generalisieren beziehungsweise auf andere anwendbar sein.
+
+\subsubsection{NER-Modell}
+Um den \ac{OSMI}-Index automatisiert bewerten zu können ist es unter anderem notwendig die textbasierten Inhalte einer
+Website auf sensorische Inhalte prüfen zu können.
+Hierfür eignet sich ein \ac{NER}-Modell, welches die sensorischen Wörter bzw. Begrifflichkeiten als eigene Entität erkennt
+am meisten.
+Da das Anlernen eines NER-Modells über ein Supervised Learning Verfahren vorgenommen wird, bedarf es einer Datengrundlage,
+die vorannotierte Textpassagen enthält auf Basis dessen das Modell trainiert werden kann.
+Die Datengrundlage wurde bereits aus vergangenen Projekten durch die Extraktion von Rohtexten der jeweiligen Produktwebseiten
+vorgenommen.
+Im Rahmen dieses Consulting-Projektes wurden die Rohdaten genutzt, um diese vorzufiltern und anschließend innerhalb von
+Doccano zu labeln.
+Die gelabelten Textpassagen stellten anschließend die Datengrundlage für das Training des \ac{NER}-Modells dar.
+Um es den Annotierern im Vorfeld einfacher zu machen, wurden die Daten vorgefiltert auf mögliche Sensory Words.
+
+Anschließend wurden die annotierten Daten aus Doccano heraus exportiert und in das Trainingsformat für Spacy transformiert.
+Das \ac{NER}-Modell wurde im nächsten Schritt auf der Datenbasis trainiert.
+Die Ergebnisse des Modelltrainings sind in Abbildung~\ref{fig:NER_Metrics} dargestellt.
+
+\begin{figure}[H]
+	\centering
+	\caption[]{Ergebnisse des NER-Modell-Trainings}\label{fig:NER_Metrics}
+	\includegraphics[width=1\textwidth]{NER_Metrics.png}
+	\\
+	\textit{Quelle: Eigene Darstellung}
+\end{figure}
+
+Hier sind die Metriken \textit{Accuracy} und \textit{Recall} je Trainingsepoche abgetragen.
+Je besser das Modell trainiert ist, desto mehr nähren sich beide Metriken einem Wert von eins \bzw. einhundert Prozent an.
+Die Abbildung zeigt, dass sowohl die eine als auch die andere Metrik weit vom Optimalwert entfernt sind, was für eine
+geringe Modellgüte spricht.
 
 \subsection{Dashboard zur Darstellung der Ergebnisse}\label{subsec_dashboard}
 Nachdem das Modell zur Image Classification die relevanten Produktseiten einer Webseite identifiziert hat und das \ac{NER}-Modell
