@@ -15,25 +15,24 @@ Die zur Verfügung stehenden Trainings- und Testdaten sind jedoch nicht ausreich
 zu entwickeln.
 Das heißt in Bezug auf den Image Classifier, dass dieser Produktseiten von Nicht-Produktseiten mit rund 60\% Genauigkeit underscheidet,
 was nur unwesentlich besser ist als die Chancen eines Münzwurfes für \glqq{Kopf}\grqq{} oder \glqq{Zahl}\grqq{}.
-Das \ac{NER}-Modell ist vergleichsweise sogar noch weniger genau. Es erreicht eine \textit{Accuracy} von \textcolor{red}{15\%},
+Das \ac{NER}-Modell ist vergleichsweise sogar noch weniger genau. Es erreicht eine \textit{Accuracy} von 15\%,
 wodurch es in diesem Zustand noch nicht für einen produktiven Einsatz verwendbar ist. 
 Zwar standen der Projektgruppe für beide Modelle ausreichend viele Rohdaten zur Verfügung, jedoch wurden sie nicht alle annotiert. Dafür standen im Rahmen der Projektdauer zu zeitlich zu
 wenige Ressourcen zur Verfügung.
-
-
-\textcolor{red}{
-Was ist noch offen?
-Mehr Trainingsdaten zur Optimierung der Modelle
-Ende-zu-Ende Integration der Pipeline, um das Zielbild zu komplementieren
-Funktion zur Berechnung des OSMI-Indexes auf Basis unserer Modellinputs
-}
-\textcolor{red}{
-Ausblick  / Entwicklungspotential:
-Speech-to-Text-Implementierung, um Sound und Videodateien verarbeiten zu können
-}
 
 Dem Anspruch der vollständig automatisierten Erfassung des \ac{OSMI} konnte die Arbeit ebenfalls nicht ganz gerecht werden. So existieren alle dafür notwendigen Teile wie das Scraping der Webseite,~\footcite[\vglf][]{ostkamp2022a} die Bildklassifizierung und die \acl{NER} des Inhalts sowie die Darstellung der Ergebnisse,~\footcite[\vglf][]{ostkamp2022b}~\footcite[\vglf][]{ostkamp2022c}
 jedoch wurden sie nicht miteinander integriert.
 
 In dieser Arbeit wurden Text und Bilder zur automatisierten Berechnung des \ac{OSMI}-Indexes verwendet. Was jedoch nicht berücksichtigt wurde, sind dynamische Medien wie Video und Ton.
 Diese sind ebenfalls für den OSMI relevant und könnten daher in zukünftigen Arbeiten betrachtet werden um zur Berechnung des OSMI den vollständigen Inhalt einer Webseite zu betrachten.
+
+% \textcolor{red}{
+% Was ist noch offen?
+% Mehr Trainingsdaten zur Optimierung der Modelle
+% Ende-zu-Ende Integration der Pipeline, um das Zielbild zu komplementieren
+% Funktion zur Berechnung des OSMI-Indexes auf Basis unserer Modellinputs
+% }
+% \textcolor{red}{
+% Ausblick  / Entwicklungspotential:
+% Speech-to-Text-Implementierung, um Sound und Videodateien verarbeiten zu können
+% }
