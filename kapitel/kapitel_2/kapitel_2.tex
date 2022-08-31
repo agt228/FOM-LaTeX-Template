@@ -169,7 +169,7 @@ Aufgrund der geringen Menge der Eingangsdaten wurde \textit{Data Augmentation} v
 \end{figure}
 Abbildung~\ref{fig:metricsTrain} stellt jeweils die Trainings- und Validierungsmetriken für die \textit{Accuracy} und den \textit{Loss} gegenüber für das Training mit und ohne erweiterte Daten.
 Dabei gilt, dass die \textit{Accuracy} gegen eins gehen sollte und der \textit{Loss} gegen null.
-Es ist erkennbar, dass die Graphen in beiden Abbildungen relativ früh auseinander gehen, was darauf hindeutet, dass \ldots
+Es ist erkennbar, dass die Graphen in beiden Abbildungen relativ früh auseinander gehen, was darauf hindeutet, dass das Modell früh overfitted.
 
 Dennoch ist erkennbar, dass die \textit{Data Augmentation} einen klaren Effekt auf den Trainingsverlauf hat. In Abbildung~\ref{fig:metricsTrainWAugmentation} bleiben die Training und Validation Accuracy über alle Epochen hinweg nah beieinander.
 In Abbildung~\ref{fig:metricsTrainWOAugmentation} gehen beide Kurven nach der zweiten Epoche auseinander. Dies deutet darauf hin, dass das Modell auf den Trainingsdatensatz overfitted und demnach nicht die richtigen Features der Bilder erlernt.
